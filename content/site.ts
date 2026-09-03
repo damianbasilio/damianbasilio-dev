@@ -27,6 +27,11 @@ export const site = {
     es: 'Soy estudiante de Ingeniería en Ciberseguridad en la FCC BUAP, en Puebla. Paso la mayor parte del tiempo en backends — scrapers distribuidos, pipelines en tiempo real, APIs que no se pueden caer — y el resto aprendiendo cómo se rompen esos mismos sistemas. Compito con 52Sec en hackathons y CTFs.',
   } satisfies Localized<string>,
 
+  aboutExtra: {
+    en: 'Most of what I enjoy sits at the seam between building something and hardening it. I would rather ship a system I understand well enough to attack than one that merely works on the happy path.',
+    es: 'Lo que más disfruto está en la costura entre construir algo y endurecerlo. Prefiero lanzar un sistema que entiendo lo suficiente como para atacarlo, en vez de uno que solo funciona en el camino feliz.',
+  } satisfies Localized<string>,
+
   location: {
     en: 'Puebla, Mexico',
     es: 'Puebla, México',

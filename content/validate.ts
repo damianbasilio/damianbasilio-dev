@@ -86,6 +86,7 @@ export function assertContentValid(): void {
   checkLocalizedString('site', 'role', site.role);
   checkLocalizedString('site', 'tagline', site.tagline);
   checkLocalizedString('site', 'intro', site.intro);
+  checkLocalizedString('site', 'aboutExtra', site.aboutExtra);
   checkLocalizedString('site', 'location', site.location);
 
   if (site.stack.length === 0) fail('site', 'stack is empty');
