@@ -7,8 +7,11 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
       <img
         src={site.avatar}
         alt={site.fullName}
-        width={96}
-        height={96}
+        width={512}
+        height={512}
+        /* Above the fold: fetch eagerly and at high priority. */
+        fetchPriority="high"
+        decoding="async"
         className="mx-auto h-16 w-16 rounded-full border border-border object-cover"
       />
 

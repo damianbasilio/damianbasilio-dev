@@ -155,6 +155,6 @@ export const site = {
     '/images/strip/strip-05.jpg',
   ],
 
-  avatar: '/images/profile/avatar.jpg',
+  avatar: '/images/profile/avatar.webp',
   portrait: '/images/profile/portrait.jpg',
 };
