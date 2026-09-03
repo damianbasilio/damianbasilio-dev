@@ -1,43 +1,56 @@
-import { localeHref, type Dictionary, type Locale } from '@/lib/i18n';
+import type { Dictionary, Locale } from '@/lib/i18n';
 import { site } from '@/content/site';
+import { Band } from '@/components/ruled-heading';
 
-export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
+/**
+ * Avatar sits inside two concentric rings — an outer hairline circle and an
+ * inner ringed disc — matching the reference site's framed portrait.
+ */
+function RingedAvatar() {
   return (
-    <section className="pt-12 text-center md:pt-16">
-      <img
-        src={site.avatar}
-        alt={site.fullName}
-        width={512}
-        height={512}
-        /* Above the fold: fetch eagerly and at high priority. */
-        fetchPriority="high"
-        decoding="async"
-        className="mx-auto h-[100px] w-[100px] rounded-full object-cover transition-opacity duration-300 hover:opacity-90"
-      />
+    <div className="relative my-5 md:mt-9">
+      <div className="mx-auto flex h-[141px] w-[141px] items-center justify-center rounded-full border border-border/50">
+        <div className="flex h-[116px] w-[116px] items-center justify-center rounded-full border-[1.5px] border-border/50 bg-bg shadow-[inset_0_2px_4px_rgb(0_0_0_/_0.04)]">
+          <img
+            src={site.avatar}
+            alt={site.fullName}
+            width={512}
+            height={512}
+            /* Above the fold: fetch eagerly and at high priority. */
+            fetchPriority="high"
+            decoding="async"
+            className="h-[100px] w-[100px] rounded-full object-cover transition-opacity duration-300 hover:opacity-90"
+          />
+        </div>
+      </div>
+    </div>
+  );
+}
 
-      <h1 className="mx-auto mt-8 max-w-2xl text-balance text-[clamp(2.25rem,5.5vw,3.75rem)] font-medium leading-[1.08] tracking-[-0.05em]">
-        {site.greeting[locale]}
-        <br />
-        {site.tagline[locale]}
-      </h1>
+export function Hero({
+  locale,
+}: {
+  locale: Locale;
+  dict: Dictionary;
+}) {
+  return (
+    <section className="pt-6 md:pt-10">
+      <RingedAvatar />
 
-      <p className="mx-auto mt-6 max-w-xl text-balance text-sm leading-relaxed text-muted md:text-base">
-        {site.intro[locale]}
-      </p>
+      <div className="mt-6 space-y-4">
+        <Band className="py-6">
+          <h1 className="mx-auto max-w-2xl text-balance text-center text-4xl font-medium leading-tight tracking-[-0.05em] md:text-6xl md:leading-[64px]">
+            {site.greeting[locale]}
+            <br />
+            {site.heroTagline[locale]}
+          </h1>
+        </Band>
 
-      <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-        <a
-          href={`${localeHref(locale, '/projects')}/`}
-          className="rounded-full bg-accent px-5 py-2.5 text-sm font-medium text-white transition-all duration-300 hover:-translate-y-0.5 hover:opacity-90"
-        >
-          {dict.home.viewProjects}
-        </a>
-        <a
-          href={`${localeHref(locale, '/contact')}/`}
-          className="rounded-full border border-border px-5 py-2.5 text-sm font-medium transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/40 hover:bg-card"
-        >
-          {dict.home.getInTouch}
-        </a>
+        <Band className="py-6">
+          <p className="mx-auto max-w-xl text-balance text-center text-base leading-relaxed text-muted">
+            {site.heroIntro[locale]}
+          </p>
+        </Band>
       </div>
     </section>
   );

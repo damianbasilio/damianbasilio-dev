@@ -87,6 +87,8 @@ export function assertContentValid(): void {
   checkLocalizedString('site', 'footerBio', site.footerBio);
   checkLocalizedString('site', 'role', site.role);
   checkLocalizedString('site', 'tagline', site.tagline);
+  checkLocalizedString('site', 'heroTagline', site.heroTagline);
+  checkLocalizedString('site', 'heroIntro', site.heroIntro);
   checkLocalizedString('site', 'intro', site.intro);
   checkLocalizedString('site', 'aboutExtra', site.aboutExtra);
   checkLocalizedString('site', 'location', site.location);

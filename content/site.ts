@@ -32,6 +32,16 @@ export const site = {
     es: 'Construyo backends y estoy aprendiendo a romperlos.',
   } satisfies Localized<string>,
 
+  heroTagline: {
+    en: 'I build backends and learn to break them.',
+    es: 'Construyo backends y aprendo a romperlos.',
+  } satisfies Localized<string>,
+
+  heroIntro: {
+    en: 'Cybersecurity Engineering student at FCC BUAP in Puebla. Distributed scrapers, real-time pipelines, and APIs that have to stay up.',
+    es: 'Estudiante de Ingeniería en Ciberseguridad en la FCC BUAP, Puebla. Scrapers distribuidos, pipelines en tiempo real y APIs que no se pueden caer.',
+  } satisfies Localized<string>,
+
   intro: {
     en: "I'm a Cybersecurity Engineering student at FCC BUAP in Puebla. I spend most of my time on backends — distributed scrapers, real-time pipelines, APIs that have to stay up — and the rest of it learning how those same systems fall over. I compete with 52Sec in hackathons and CTFs.",
     es: 'Soy estudiante de Ingeniería en Ciberseguridad en la FCC BUAP, en Puebla. Paso la mayor parte del tiempo en backends — scrapers distribuidos, pipelines en tiempo real, APIs que no se pueden caer — y el resto aprendiendo cómo se rompen esos mismos sistemas. Compito con 52Sec en hackathons y CTFs.',
