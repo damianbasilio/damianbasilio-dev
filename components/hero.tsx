@@ -12,7 +12,7 @@ export function Hero({ locale, dict }: { locale: Locale; dict: Dictionary }) {
         /* Above the fold: fetch eagerly and at high priority. */
         fetchPriority="high"
         decoding="async"
-        className="mx-auto h-16 w-16 rounded-full border border-border object-cover"
+        className="mx-auto h-[100px] w-[100px] rounded-full object-cover transition-opacity duration-300 hover:opacity-90"
       />
 
       <h1 className="mx-auto mt-8 max-w-2xl text-balance text-[clamp(2.25rem,5.5vw,3.75rem)] font-medium leading-[1.08] tracking-[-0.05em]">
