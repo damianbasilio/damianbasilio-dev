@@ -6,6 +6,8 @@ import {
   type LocaleParams,
 } from '@/lib/i18n';
 import { projects } from '@/content/projects';
+import { PageShell } from '@/components/page-shell';
+import { RuledHeading } from '@/components/ruled-heading';
 import { ProjectCard } from '@/components/project-card';
 import { Reveal } from '@/components/reveal';
 
@@ -24,42 +26,56 @@ export default async function ProjectsPage({ params }: LocaleParams) {
   const locale = toLocale((await params).locale);
   const dict = getDictionary(locale);
 
-  const featured = projects.filter((project) => project.featured);
-  const rest = projects.filter((project) => !project.featured);
+  const featured = projects.filter((p) => p.featured);
+  const rest = projects.filter((p) => !p.featured);
 
   return (
-    <main className="mx-auto max-w-5xl px-4 py-16 sm:py-24">
-      <header className="max-w-2xl">
-        <h1 className="text-[clamp(2rem,5vw,3rem)] font-medium tracking-tight">
+    <PageShell>
+      <section className="pt-12 text-center md:pt-16">
+        <h1 className="mx-auto max-w-2xl text-balance text-[clamp(2rem,5vw,3rem)] font-medium leading-[1.1] tracking-[-0.04em]">
           {dict.projects.title}
         </h1>
-        <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
+        <p className="mx-auto mt-6 max-w-xl text-balance text-sm leading-relaxed text-muted md:text-base">
           {dict.projects.subtitle}
         </p>
-      </header>
+      </section>
 
-      <div className="mt-12 space-y-4">
-        {featured.map((project, index) => (
-          <Reveal key={project.slug} delay={index}>
-            <ProjectCard
-              project={project}
-              locale={locale}
-              dict={dict}
-              featured
+      <div className="mt-12 space-y-12 pb-16 md:space-y-16">
+        <section className="relative space-y-8">
+          <RuledHeading
+            eyebrow={dict.home.featuredProject}
+            title={dict.projects.featuredHeading}
+          />
+          <div className="grid grid-cols-1 gap-2">
+            {featured.map((project, i) => (
+              <Reveal key={project.slug} delay={i}>
+                <ProjectCard
+                  project={project}
+                  locale={locale}
+                  dict={dict}
+                  featured
+                />
+              </Reveal>
+            ))}
+          </div>
+        </section>
+
+        {rest.length > 0 && (
+          <section className="relative space-y-8">
+            <RuledHeading
+              eyebrow={dict.nav.projects}
+              title={dict.projects.moreHeading}
             />
-          </Reveal>
-        ))}
+            <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+              {rest.map((project, i) => (
+                <Reveal key={project.slug} delay={i}>
+                  <ProjectCard project={project} locale={locale} dict={dict} />
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
-
-      {rest.length > 0 && (
-        <div className="mt-4 grid gap-4 md:grid-cols-2">
-          {rest.map((project, index) => (
-            <Reveal key={project.slug} delay={index + 1}>
-              <ProjectCard project={project} locale={locale} dict={dict} />
-            </Reveal>
-          ))}
-        </div>
-      )}
-    </main>
+    </PageShell>
   );
 }

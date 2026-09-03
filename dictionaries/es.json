@@ -22,11 +22,17 @@
     "stackBlurb": "Lo que más uso.",
     "contactTitle": "Contacto",
     "contactBlurb": "Escríbeme. Leo todo.",
-    "basedIn": "Ubicado en"
+    "basedIn": "Ubicado en",
+    "aboutHeading": "Qué estudio, qué construyo y por qué insisto en romperlo",
+    "competitionsHeading": "Dónde compito y qué he traído a casa"
   },
   "about": {
     "title": "Sobre mí",
-    "timelineTitle": "Trayectoria"
+    "timelineTitle": "Trayectoria",
+    "introTitle": "Una introducción rápida sobre mí y lo que construyo",
+    "experienceEyebrow": "Experiencia",
+    "timelineHeading": "Mis estudios, mi equipo y dónde he competido",
+    "stackHeading": "Las herramientas que más uso"
   },
   "projects": {
     "title": "Proyectos",
@@ -34,13 +40,18 @@
     "closedSource": "Código cerrado",
     "openSource": "Código abierto",
     "showDetails": "Ver detalles",
-    "hideDetails": "Ocultar detalles"
+    "hideDetails": "Ocultar detalles",
+    "featuredHeading": "El proyecto al que dedico más tiempo",
+    "moreHeading": "Otras cosas que he construido"
   },
   "competitions": {
     "title": "Competencias",
     "subtitle": "Hackathons y CTFs — dónde competí y cómo me fue.",
     "ongoing": "En curso",
-    "noResultYet": "En curso — aún sin resultado."
+    "noResultYet": "En curso — aún sin resultado.",
+    "result": "Resultados",
+    "ongoingTitle": "Compitiendo ahora",
+    "resultsHeading": "Dónde competí y cómo me fue"
   },
   "contact": {
     "title": "Contacto",
@@ -50,7 +61,8 @@
     "email": "Correo",
     "linkedin": "LinkedIn",
     "github": "GitHub",
-    "instagram": "Instagram"
+    "instagram": "Instagram",
+    "heading": "Las formas más rápidas de contactarme"
   },
   "footer": {
     "rights": "Todos los derechos reservados.",

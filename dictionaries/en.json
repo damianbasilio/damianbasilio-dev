@@ -22,11 +22,17 @@
     "stackBlurb": "What I reach for most.",
     "contactTitle": "Contact",
     "contactBlurb": "Say hello. I read everything.",
-    "basedIn": "Based in"
+    "basedIn": "Based in",
+    "aboutHeading": "What I study, what I build, and why I keep breaking it",
+    "competitionsHeading": "Where I compete and what I have brought home"
   },
   "about": {
     "title": "About",
-    "timelineTitle": "Timeline"
+    "timelineTitle": "Timeline",
+    "introTitle": "A quick intro to me and what I actually build",
+    "experienceEyebrow": "Experience",
+    "timelineHeading": "My studies, my team, and where I have competed",
+    "stackHeading": "The tools I reach for most"
   },
   "projects": {
     "title": "Projects",
@@ -34,13 +40,18 @@
     "closedSource": "Closed source",
     "openSource": "Open source",
     "showDetails": "Show details",
-    "hideDetails": "Hide details"
+    "hideDetails": "Hide details",
+    "featuredHeading": "The project I spend most of my time on",
+    "moreHeading": "Other things I have built"
   },
   "competitions": {
     "title": "Competitions",
     "subtitle": "Hackathons and CTFs — where I competed and how it went.",
     "ongoing": "Ongoing",
-    "noResultYet": "In progress — no result yet."
+    "noResultYet": "In progress — no result yet.",
+    "result": "Results",
+    "ongoingTitle": "Competing right now",
+    "resultsHeading": "Where I competed and how it went"
   },
   "contact": {
     "title": "Contact",
@@ -50,7 +61,8 @@
     "email": "Email",
     "linkedin": "LinkedIn",
     "github": "GitHub",
-    "instagram": "Instagram"
+    "instagram": "Instagram",
+    "heading": "The fastest ways to reach me"
   },
   "footer": {
     "rights": "All rights reserved.",

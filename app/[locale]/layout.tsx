@@ -9,6 +9,7 @@ import {
 import { assertContentValid } from '@/content/validate';
 import { site } from '@/content/site';
 import { ThemeProvider } from '@/components/theme-provider';
+import { BackdropGlow } from '@/components/page-shell';
 import { Nav } from '@/components/nav';
 import { Footer } from '@/components/footer';
 
@@ -33,11 +34,7 @@ export async function generateMetadata({
     description: site.intro[locale],
     alternates: {
       canonical: `/${locale}/`,
-      languages: {
-        en: '/en/',
-        es: '/es/',
-        'x-default': '/en/',
-      },
+      languages: { en: '/en/', es: '/es/', 'x-default': '/en/' },
     },
     openGraph: {
       type: 'website',
@@ -46,15 +43,8 @@ export async function generateMetadata({
       url: `/${locale}/`,
       title: `${site.name} — ${site.role[locale]}`,
       description: site.tagline[locale],
-      // Declared explicitly: an explicit openGraph block suppresses Next's
-      // file-based opengraph-image convention, which would otherwise attach it.
       images: [
-        {
-          url: '/opengraph-image',
-          width: 1200,
-          height: 630,
-          alt: site.name,
-        },
+        { url: '/opengraph-image', width: 1200, height: 630, alt: site.name },
       ],
     },
     twitter: {
@@ -91,11 +81,13 @@ export default async function LocaleLayout({
   return (
     <ThemeProvider>
       <HtmlLang locale={locale} />
-      <div className="flex min-h-dvh flex-col">
+      <BackdropGlow />
+      {/* The bordered centre column the entire site lives inside. */}
+      <main className="relative mx-auto flex min-h-dvh w-full max-w-5xl flex-1 flex-col overflow-x-hidden border-x border-border/60">
         <Nav locale={locale} dict={dict} />
-        <div className="flex-1">{children}</div>
+        {children}
         <Footer locale={locale} dict={dict} />
-      </div>
+      </main>
     </ThemeProvider>
   );
 }

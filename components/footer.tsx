@@ -10,12 +10,15 @@ export function Footer({
   dict: Dictionary;
 }) {
   return (
-    <footer className="mt-24 border-t border-border/60">
-      <div className="mx-auto flex max-w-5xl flex-col gap-8 px-4 py-12 sm:flex-row sm:justify-between">
+    <footer className="mt-auto border-t border-border/60">
+      <div className="flex flex-col gap-8 px-4 py-10 md:flex-row md:justify-between md:px-8">
         <div className="max-w-xs">
-          <p className="font-mono text-sm font-medium">{site.name}</p>
+          <p className="font-mono text-sm font-medium">
+            {site.name}
+            <span className="text-accent">.</span>
+          </p>
           <p className="mt-2 text-sm text-muted">{site.role[locale]}</p>
-          <p className="mt-4 text-xs text-muted">{dict.footer.builtWith}</p>
+          <p className="mt-4 text-xs text-faint">{dict.footer.builtWith}</p>
         </div>
 
         <div className="flex gap-12">
@@ -25,7 +28,7 @@ export function Footer({
                 <li key={item.key}>
                   <a
                     href={`${localeHref(locale, item.path)}/`}
-                    className="text-muted transition-colors duration-300 ease-in-out hover:text-text focus-visible:text-text"
+                    className="text-muted transition-colors duration-300 hover:text-text focus-visible:text-text"
                   >
                     {dict.nav[item.key]}
                   </a>
@@ -41,7 +44,7 @@ export function Footer({
                   href={social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-muted transition-colors duration-300 ease-in-out hover:text-text focus-visible:text-text"
+                  className="text-muted transition-colors duration-300 hover:text-text focus-visible:text-text"
                 >
                   {social.label}
                 </a>
@@ -51,8 +54,8 @@ export function Footer({
         </div>
       </div>
 
-      <div className="mx-auto max-w-5xl px-4 pb-10">
-        <p className="font-mono text-xs text-muted">
+      <div className="border-t border-border/60 px-4 py-6 md:px-8">
+        <p className="font-mono text-xs text-faint">
           © {new Date().getFullYear()} {site.fullName}. {dict.footer.rights}
         </p>
       </div>

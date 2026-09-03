@@ -6,6 +6,8 @@ import {
   type LocaleParams,
 } from '@/lib/i18n';
 import { competitions } from '@/content/competitions';
+import { PageShell } from '@/components/page-shell';
+import { RuledHeading } from '@/components/ruled-heading';
 import { CompetitionCard } from '@/components/competition-card';
 import { Reveal } from '@/components/reveal';
 
@@ -27,44 +29,69 @@ export default async function CompetitionsPage({ params }: LocaleParams) {
   const locale = toLocale((await params).locale);
   const dict = getDictionary(locale);
 
-  const anchors = competitions.filter((competition) => competition.anchor);
-  const rest = competitions.filter((competition) => !competition.anchor);
+  const completed = competitions.filter((c) => c.status === 'completed');
+  const ongoing = competitions.filter((c) => c.status === 'ongoing');
+  const anchor = completed.filter((c) => c.anchor);
+  const otherCompleted = completed.filter((c) => !c.anchor);
 
   return (
-    <main className="mx-auto max-w-5xl px-4 py-16 sm:py-24">
-      <header className="max-w-2xl">
-        <h1 className="text-[clamp(2rem,5vw,3rem)] font-medium tracking-tight">
+    <PageShell>
+      <section className="pt-12 text-center md:pt-16">
+        <h1 className="mx-auto max-w-2xl text-balance text-[clamp(2rem,5vw,3rem)] font-medium leading-[1.1] tracking-[-0.04em]">
           {dict.competitions.title}
         </h1>
-        <p className="mt-3 text-sm leading-relaxed text-muted sm:text-base">
+        <p className="mx-auto mt-6 max-w-xl text-balance text-sm leading-relaxed text-muted md:text-base">
           {dict.competitions.subtitle}
         </p>
-      </header>
+      </section>
 
-      <div className="mt-12 space-y-4">
-        {anchors.map((competition, index) => (
-          <Reveal key={competition.slug} delay={index}>
-            <CompetitionCard
-              competition={competition}
-              locale={locale}
-              dict={dict}
-              anchor
-            />
-          </Reveal>
-        ))}
-      </div>
+      <div className="mt-12 space-y-12 pb-16 md:space-y-16">
+        <section className="relative space-y-8">
+          <RuledHeading
+            eyebrow={dict.competitions.result}
+            title={dict.competitions.resultsHeading}
+          />
+          <div className="grid grid-cols-1 gap-2">
+            {anchor.map((competition, i) => (
+              <Reveal key={competition.slug} delay={i}>
+                <CompetitionCard
+                  competition={competition}
+                  locale={locale}
+                  dict={dict}
+                  anchor
+                />
+              </Reveal>
+            ))}
+            {otherCompleted.map((competition, i) => (
+              <Reveal key={competition.slug} delay={i + 1}>
+                <CompetitionCard
+                  competition={competition}
+                  locale={locale}
+                  dict={dict}
+                />
+              </Reveal>
+            ))}
+          </div>
+        </section>
 
-      <div className="mt-4 grid gap-4 md:grid-cols-2">
-        {rest.map((competition, index) => (
-          <Reveal key={competition.slug} delay={index + 1}>
-            <CompetitionCard
-              competition={competition}
-              locale={locale}
-              dict={dict}
-            />
-          </Reveal>
-        ))}
+        <section className="relative space-y-8">
+          <RuledHeading
+            eyebrow={dict.competitions.ongoing}
+            title={dict.competitions.ongoingTitle}
+          />
+          <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+            {ongoing.map((competition, i) => (
+              <Reveal key={competition.slug} delay={i}>
+                <CompetitionCard
+                  competition={competition}
+                  locale={locale}
+                  dict={dict}
+                />
+              </Reveal>
+            ))}
+          </div>
+        </section>
       </div>
-    </main>
+    </PageShell>
   );
 }

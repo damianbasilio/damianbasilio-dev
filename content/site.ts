@@ -17,6 +17,11 @@ export const site = {
     es: 'Hola, soy Damian.',
   } satisfies Localized<string>,
 
+  aboutHeadline: {
+    en: "I'm Damian, a backend developer who keeps trying to break his own systems.",
+    es: 'Soy Damian, un desarrollador backend que insiste en romper sus propios sistemas.',
+  } satisfies Localized<string>,
+
   tagline: {
     en: "I build backends and I'm learning how to break them.",
     es: 'Construyo backends y estoy aprendiendo a romperlos.',
