@@ -1,5 +1,8 @@
 import type { Metadata } from 'next';
 import { locales, toLocale, type LocaleParams } from '@/lib/i18n';
+import { assertContentValid } from '@/content/validate';
+
+assertContentValid();
 
 export const dynamicParams = false;
 
