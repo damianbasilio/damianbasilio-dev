@@ -10,9 +10,10 @@ function hueFromSeed(seed: string): number {
 }
 
 function initials(label: string): string {
-  return label
-    .split(/\s+/)
-    .filter(Boolean)
+  const words = label.split(/\s+/).filter(Boolean);
+  // Single-word labels ("HackMTY") would otherwise render one lonely letter.
+  if (words.length === 1) return words[0].slice(0, 2).toUpperCase();
+  return words
     .slice(0, 2)
     .map((word) => word[0]?.toUpperCase() ?? '')
     .join('');
