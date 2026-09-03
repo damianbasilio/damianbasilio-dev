@@ -1,0 +1,64 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "about": "Sobre mí",
+    "projects": "Proyectos",
+    "competitions": "Competencias",
+    "contact": "Contacto",
+    "menu": "Menú",
+    "closeMenu": "Cerrar menú",
+    "toggleTheme": "Cambiar tema",
+    "switchLanguage": "Cambiar idioma"
+  },
+  "home": {
+    "viewProjects": "Ver proyectos",
+    "getInTouch": "Contáctame",
+    "aboutTitle": "Sobre mí",
+    "aboutBlurb": "Dónde estudio, qué construyo y por qué insisto en romperlo.",
+    "competitionsTitle": "Competencias",
+    "competitionsBlurb": "Hackathons y CTFs, a nivel nacional e internacional.",
+    "featuredProject": "Proyecto destacado",
+    "stackTitle": "Stack técnico",
+    "stackBlurb": "Lo que más uso.",
+    "contactTitle": "Contacto",
+    "contactBlurb": "Escríbeme. Leo todo.",
+    "basedIn": "Ubicado en"
+  },
+  "about": {
+    "title": "Sobre mí",
+    "timelineTitle": "Trayectoria"
+  },
+  "projects": {
+    "title": "Proyectos",
+    "subtitle": "Cosas que he construido, y qué hacen realmente.",
+    "closedSource": "Código cerrado",
+    "openSource": "Código abierto",
+    "showDetails": "Ver detalles",
+    "hideDetails": "Ocultar detalles"
+  },
+  "competitions": {
+    "title": "Competencias",
+    "subtitle": "Hackathons y CTFs — dónde competí y cómo me fue.",
+    "ongoing": "En curso",
+    "noResultYet": "En curso — aún sin resultado."
+  },
+  "contact": {
+    "title": "Contacto",
+    "subtitle": "Las formas más rápidas de contactarme.",
+    "copyEmail": "Copiar correo",
+    "copied": "Copiado",
+    "email": "Correo",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "instagram": "Instagram"
+  },
+  "footer": {
+    "rights": "Todos los derechos reservados.",
+    "builtWith": "Hecho con Next.js."
+  },
+  "notFound": {
+    "title": "Página no encontrada",
+    "body": "Esa página no existe.",
+    "home": "Ir al inicio"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "projects": "Projects",
+    "competitions": "Competitions",
+    "contact": "Contact",
+    "menu": "Menu",
+    "closeMenu": "Close menu",
+    "toggleTheme": "Toggle theme",
+    "switchLanguage": "Switch language"
+  },
+  "home": {
+    "viewProjects": "View projects",
+    "getInTouch": "Get in touch",
+    "aboutTitle": "About me",
+    "aboutBlurb": "Where I study, what I build, and why I keep trying to break it.",
+    "competitionsTitle": "Competitions",
+    "competitionsBlurb": "Hackathons and CTFs, nationally and internationally.",
+    "featuredProject": "Featured project",
+    "stackTitle": "Tech stack",
+    "stackBlurb": "What I reach for most.",
+    "contactTitle": "Contact",
+    "contactBlurb": "Say hello. I read everything.",
+    "basedIn": "Based in"
+  },
+  "about": {
+    "title": "About",
+    "timelineTitle": "Timeline"
+  },
+  "projects": {
+    "title": "Projects",
+    "subtitle": "Things I have built, and what they actually do.",
+    "closedSource": "Closed source",
+    "openSource": "Open source",
+    "showDetails": "Show details",
+    "hideDetails": "Hide details"
+  },
+  "competitions": {
+    "title": "Competitions",
+    "subtitle": "Hackathons and CTFs — where I competed and how it went.",
+    "ongoing": "Ongoing",
+    "noResultYet": "In progress — no result yet."
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "The fastest ways to reach me.",
+    "copyEmail": "Copy email address",
+    "copied": "Copied",
+    "email": "Email",
+    "linkedin": "LinkedIn",
+    "github": "GitHub",
+    "instagram": "Instagram"
+  },
+  "footer": {
+    "rights": "All rights reserved.",
+    "builtWith": "Built with Next.js."
+  },
+  "notFound": {
+    "title": "Page not found",
+    "body": "That page does not exist.",
+    "home": "Go home"
+  }
+}

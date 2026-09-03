@@ -17,3 +17,8 @@ CLAUDE.md
 AGENTS.md
 GEMINI.md
 docs/superpowers/
+
+# Private infrastructure — never published
+Caddyfile
+deploy.sh
+DEPLOY.md
