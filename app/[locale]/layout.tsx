@@ -1,7 +1,14 @@
 import type { Metadata } from 'next';
-import { locales, toLocale, type LocaleParams } from '@/lib/i18n';
+import {
+  getDictionary,
+  locales,
+  toLocale,
+  type LocaleParams,
+} from '@/lib/i18n';
 import { assertContentValid } from '@/content/validate';
 import { ThemeProvider } from '@/components/theme-provider';
+import { Nav } from '@/components/nav';
+import { Footer } from '@/components/footer';
 
 assertContentValid();
 
@@ -23,11 +30,14 @@ export default async function LocaleLayout({
   params,
 }: LocaleParams & { children: React.ReactNode }) {
   const locale = toLocale((await params).locale);
+  const dict = getDictionary(locale);
 
   return (
     <ThemeProvider>
-      <div data-locale={locale} className="flex min-h-dvh flex-col">
-        {children}
+      <div className="flex min-h-dvh flex-col">
+        <Nav locale={locale} dict={dict} />
+        <div className="flex-1">{children}</div>
+        <Footer locale={locale} dict={dict} />
       </div>
     </ThemeProvider>
   );

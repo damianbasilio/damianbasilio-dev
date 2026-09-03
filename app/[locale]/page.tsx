@@ -1,5 +1,4 @@
 import { getDictionary, toLocale, type LocaleParams } from '@/lib/i18n';
-import { ThemeToggle } from '@/components/theme-toggle';
 import { Card } from '@/components/card';
 import { Reveal } from '@/components/reveal';
 import { Media } from '@/components/media';
@@ -11,7 +10,6 @@ export default async function HomePage({ params }: LocaleParams) {
 
   return (
     <main className="mx-auto max-w-3xl px-4 py-24">
-      <ThemeToggle dict={dict} />
       <div className="mt-10 grid gap-4 sm:grid-cols-2">
         {[0, 1, 2, 3].map((i) => (
           <Reveal key={i} delay={i}>
