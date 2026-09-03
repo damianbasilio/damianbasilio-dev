@@ -5,20 +5,3 @@ out/
 *.tsbuildinfo
 next-env.d.ts
 .env*.local
-
-# AI agent tooling — never published
-.claude/
-.cursor/
-.windsurf/
-.clinerules/
-.aider*
-.superpowers/
-CLAUDE.md
-AGENTS.md
-GEMINI.md
-docs/superpowers/
-
-# Private infrastructure — never published
-Caddyfile
-deploy.sh
-DEPLOY.md
