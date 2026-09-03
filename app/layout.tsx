@@ -1,15 +1,10 @@
 import type { Metadata } from 'next';
-import { Geist, Geist_Mono } from 'next/font/google';
+import { Geist } from 'next/font/google';
 import './globals.css';
 
+/* One typeface for the entire site. Mixing faces reads as cheap. */
 const geistSans = Geist({
   variable: '--font-geist-sans',
-  subsets: ['latin'],
-  display: 'swap',
-});
-
-const geistMono = Geist_Mono({
-  variable: '--font-geist-mono',
   subsets: ['latin'],
   display: 'swap',
 });
@@ -26,8 +21,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+    /* The font variable lives on <html> so :root-level --font-sans resolves. */
+    <html lang="en" className={geistSans.variable}>
+      <body>
         {/* Scroll reveals start hidden and are un-hidden by JS. Without this
             override a visitor with JS disabled would see an empty page. */}
         <noscript>

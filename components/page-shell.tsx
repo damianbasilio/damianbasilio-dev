@@ -34,7 +34,7 @@ export function BackdropGlow() {
   return (
     <div
       aria-hidden="true"
-      className="backdrop-glow pointer-events-none absolute left-1/2 top-0 -z-10 h-full w-[840px] -translate-x-1/2 opacity-[0.07] blur-3xl dark:opacity-[0.14]"
+      className="backdrop-glow pointer-events-none absolute left-1/2 top-0 -z-10 h-full w-[840px] -translate-x-1/2 opacity-[0.07] blur-3xl"
     />
   );
 }

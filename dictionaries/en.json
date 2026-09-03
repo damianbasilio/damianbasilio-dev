@@ -42,7 +42,9 @@
     "showDetails": "Show details",
     "hideDetails": "Hide details",
     "featuredHeading": "The project I spend most of my time on",
-    "moreHeading": "Other things I have built"
+    "moreHeading": "Other things I have built",
+    "visit": "Visit",
+    "pageTitle": "A collection of the things I have built."
   },
   "competitions": {
     "title": "Competitions",
@@ -66,7 +68,10 @@
   },
   "footer": {
     "rights": "All rights reserved.",
-    "builtWith": "Built with Next.js."
+    "builtWith": "Built with Next.js.",
+    "general": "General",
+    "specifics": "Specifics",
+    "elsewhere": "Elsewhere"
   },
   "notFound": {
     "title": "Page not found",

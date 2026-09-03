@@ -1,6 +1,7 @@
 import { localeHref, type Dictionary, type Locale } from '@/lib/i18n';
 import { site } from '@/content/site';
 import { NAV_ITEMS } from '@/lib/nav';
+import { SocialPill } from '@/components/social-icons';
 
 export function Footer({
   locale,
@@ -9,55 +10,68 @@ export function Footer({
   locale: Locale;
   dict: Dictionary;
 }) {
+  const socials = site.socials.filter((s) => s.key !== 'email');
+
+  const columns = [
+    { label: dict.footer.general, items: NAV_ITEMS.slice(0, 3) },
+    { label: dict.footer.specifics, items: NAV_ITEMS.slice(3) },
+  ];
+
   return (
-    <footer className="mt-auto border-t border-border/60">
-      <div className="flex flex-col gap-8 px-4 py-10 md:flex-row md:justify-between md:px-8">
-        <div className="max-w-xs">
-          <p className="font-mono text-sm font-medium">
-            {site.name}
-            <span className="text-accent">.</span>
+    <footer className="relative mt-auto border-t border-border/50">
+      <div className="divide-y divide-border/50 px-4 lg:flex lg:divide-x lg:divide-y-0 lg:px-4">
+        {/* Left panel: who, copyright, socials */}
+        <div className="flex w-full flex-col justify-between gap-6 py-8 lg:pr-16">
+          <p className="max-w-sm text-sm leading-relaxed text-muted">
+            {site.footerBio[locale]}
           </p>
-          <p className="mt-2 text-sm text-muted">{site.role[locale]}</p>
-          <p className="mt-4 text-xs text-faint">{dict.footer.builtWith}</p>
+          <div className="flex items-end justify-between gap-4">
+            <p className="text-sm text-muted">
+              © {new Date().getFullYear()} {site.fullName}
+            </p>
+            <SocialPill socials={socials} />
+          </div>
         </div>
 
-        <div className="flex gap-12">
-          <nav aria-label="Footer">
-            <ul className="flex flex-col gap-2 text-sm">
-              {NAV_ITEMS.map((item) => (
-                <li key={item.key}>
-                  <a
-                    href={`${localeHref(locale, item.path)}/`}
-                    className="text-muted transition-colors duration-300 hover:text-text focus-visible:text-text"
-                  >
-                    {dict.nav[item.key]}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </nav>
-
-          <ul className="flex flex-col gap-2 text-sm">
-            {site.socials.map((social) => (
-              <li key={social.key}>
-                <a
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-muted transition-colors duration-300 hover:text-text focus-visible:text-text"
-                >
-                  {social.label}
-                </a>
-              </li>
+        {/* Right panel: link columns */}
+        <div className="flex w-full flex-col items-start py-8 text-xs lg:items-end lg:pl-16">
+          <div className="flex w-full justify-between gap-12 md:justify-start md:gap-24 lg:justify-between">
+            {columns.map((column) => (
+              <div key={column.label}>
+                <p className="font-medium text-text">{column.label}</p>
+                <ul className="mt-3 flex flex-col gap-2">
+                  {column.items.map((item) => (
+                    <li key={item.key}>
+                      <a
+                        href={`${localeHref(locale, item.path)}/`}
+                        className="text-muted transition-colors duration-300 hover:text-text focus-visible:text-text"
+                      >
+                        {dict.nav[item.key]}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             ))}
-          </ul>
+            <div>
+              <p className="font-medium text-text">{dict.footer.elsewhere}</p>
+              <ul className="mt-3 flex flex-col gap-2">
+                {site.socials.map((social) => (
+                  <li key={social.key}>
+                    <a
+                      href={social.href}
+                      target={social.key === 'email' ? undefined : '_blank'}
+                      rel={social.key === 'email' ? undefined : 'noopener noreferrer'}
+                      className="text-muted transition-colors duration-300 hover:text-text focus-visible:text-text"
+                    >
+                      {social.label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
         </div>
-      </div>
-
-      <div className="border-t border-border/60 px-4 py-6 md:px-8">
-        <p className="font-mono text-xs text-faint">
-          © {new Date().getFullYear()} {site.fullName}. {dict.footer.rights}
-        </p>
       </div>
     </footer>
   );

@@ -73,9 +73,9 @@ export default async function AboutPage({ params }: LocaleParams) {
                   className="absolute -left-[27px] top-2 h-2 w-2 rounded-full bg-accent"
                 />
                 <Reveal delay={index}>
-                  <p className="font-mono text-xs text-faint">{entry.period}</p>
+                  <p className="text-xs text-faint">{entry.period}</p>
                   <h3 className="mt-1 font-medium">{entry.title[locale]}</h3>
-                  <p className="mt-0.5 font-mono text-xs text-accent">
+                  <p className="mt-0.5 text-xs text-accent">
                     {entry.org}
                   </p>
                   <p className="mt-2 text-sm leading-relaxed text-muted">

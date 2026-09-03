@@ -8,7 +8,6 @@ import {
 } from '@/lib/i18n';
 import { assertContentValid } from '@/content/validate';
 import { site } from '@/content/site';
-import { ThemeProvider } from '@/components/theme-provider';
 import { BackdropGlow } from '@/components/page-shell';
 import { Nav } from '@/components/nav';
 import { Footer } from '@/components/footer';
@@ -79,7 +78,7 @@ export default async function LocaleLayout({
   const dict = getDictionary(locale);
 
   return (
-    <ThemeProvider>
+    <>
       <HtmlLang locale={locale} />
       <BackdropGlow />
       {/* The bordered centre column the entire site lives inside. */}
@@ -88,6 +87,6 @@ export default async function LocaleLayout({
         {children}
         <Footer locale={locale} dict={dict} />
       </main>
-    </ThemeProvider>
+    </>
   );
 }

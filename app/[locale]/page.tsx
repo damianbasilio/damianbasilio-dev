@@ -49,7 +49,7 @@ export default async function HomePage({ params }: LocaleParams) {
                 <p className="mt-3 max-w-sm text-sm leading-relaxed text-muted">
                   {site.aboutExtra[locale]}
                 </p>
-                <p className="mt-auto pt-6 font-mono text-xs text-faint">
+                <p className="mt-auto pt-6 text-xs text-faint">
                   {dict.home.basedIn} {site.location[locale]}
                 </p>
               </Card>
@@ -98,10 +98,10 @@ export default async function HomePage({ params }: LocaleParams) {
                         <span aria-hidden="true" className="text-sm">
                           {p.medal ? MEDAL_EMOJI[p.medal] : ''}
                         </span>
-                        <span className="font-mono text-[11px] text-text">
+                        <span className="text-[11px] text-text">
                           {p.label[locale]}
                         </span>
-                        <span className="font-mono text-[11px] text-faint">
+                        <span className="text-[11px] text-faint">
                           {p.scope[locale]}
                         </span>
                       </li>
@@ -123,7 +123,7 @@ export default async function HomePage({ params }: LocaleParams) {
                   {ongoing.map((c) => (
                     <li
                       key={c.slug}
-                      className="flex items-center gap-2 font-mono text-xs text-muted"
+                      className="flex items-center gap-2 text-xs text-muted"
                     >
                       <span
                         aria-hidden="true"
@@ -171,7 +171,7 @@ export default async function HomePage({ params }: LocaleParams) {
                     <dl className="mt-auto flex gap-8 pt-6">
                       {featured.metrics.map((m) => (
                         <div key={m.value}>
-                          <dt className="font-mono text-xl text-text">
+                          <dt className="text-xl text-text">
                             {m.value}
                           </dt>
                           <dd className="mt-0.5 text-xs text-faint">
@@ -202,10 +202,10 @@ export default async function HomePage({ params }: LocaleParams) {
                   external={social.key !== 'email'}
                   className="h-full"
                 >
-                  <p className="font-mono text-[11px] uppercase tracking-wider text-accent">
+                  <p className="text-[11px] uppercase tracking-wider text-accent">
                     {dict.contact[social.key]}
                   </p>
-                  <p className="mt-2 break-all font-mono text-sm text-text">
+                  <p className="mt-2 break-all text-sm text-text">
                     {social.handle}
                   </p>
                 </Card>

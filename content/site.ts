@@ -22,6 +22,11 @@ export const site = {
     es: 'Soy Damian, un desarrollador backend que insiste en romper sus propios sistemas.',
   } satisfies Localized<string>,
 
+  footerBio: {
+    en: "I'm Damian — a backend developer and Cybersecurity Engineering student in Puebla. Thanks for looking around.",
+    es: 'Soy Damian — desarrollador backend y estudiante de Ingeniería en Ciberseguridad en Puebla. Gracias por pasar.',
+  } satisfies Localized<string>,
+
   tagline: {
     en: "I build backends and I'm learning how to break them.",
     es: 'Construyo backends y estoy aprendiendo a romperlos.',

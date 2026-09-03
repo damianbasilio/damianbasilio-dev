@@ -56,10 +56,10 @@ export default async function ContactPage({ params }: LocaleParams) {
                   external={social.key !== 'email'}
                   className="h-full"
                 >
-                  <p className="font-mono text-[11px] uppercase tracking-wider text-accent">
+                  <p className="text-[11px] uppercase tracking-wider text-accent">
                     {dict.contact[social.key]}
                   </p>
-                  <p className="mt-2 break-all font-mono text-sm text-text">
+                  <p className="mt-2 break-all text-sm text-text">
                     {social.handle}
                   </p>
                 </Card>

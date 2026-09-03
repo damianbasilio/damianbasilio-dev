@@ -7,8 +7,8 @@ import {
 } from '@/lib/i18n';
 import { projects } from '@/content/projects';
 import { PageShell } from '@/components/page-shell';
-import { RuledHeading } from '@/components/ruled-heading';
-import { ProjectCard } from '@/components/project-card';
+import { Band } from '@/components/ruled-heading';
+import { ProjectEntry } from '@/components/project-entry';
 import { Reveal } from '@/components/reveal';
 
 export function generateStaticParams() {
@@ -26,55 +26,32 @@ export default async function ProjectsPage({ params }: LocaleParams) {
   const locale = toLocale((await params).locale);
   const dict = getDictionary(locale);
 
-  const featured = projects.filter((p) => p.featured);
-  const rest = projects.filter((p) => !p.featured);
-
   return (
     <PageShell>
-      <section className="pt-12 text-center md:pt-16">
+      <section className="py-16 text-center md:py-20">
         <h1 className="mx-auto max-w-2xl text-balance text-[clamp(2rem,5vw,3.25rem)] font-medium leading-[1.1] tracking-[-0.05em]">
-          {dict.projects.title}
+          {dict.projects.pageTitle}
         </h1>
         <p className="mx-auto mt-6 max-w-xl text-balance text-sm leading-relaxed text-muted md:text-base">
           {dict.projects.subtitle}
         </p>
       </section>
 
-      <div className="mt-12 space-y-12 pb-16 md:space-y-16">
-        <section className="relative space-y-8">
-          <RuledHeading
-            eyebrow={dict.home.featuredProject}
-            title={dict.projects.featuredHeading}
-          />
-          <div className="grid grid-cols-1 gap-2">
-            {featured.map((project, i) => (
-              <Reveal key={project.slug} delay={i}>
-                <ProjectCard
-                  project={project}
-                  locale={locale}
-                  dict={dict}
-                  featured
-                />
-              </Reveal>
-            ))}
+      <div className="space-y-16 pb-20 md:space-y-24">
+        {projects.map((project, index) => (
+          <div key={project.slug} className="space-y-8">
+            <Band className="py-3">
+              <p className="text-center text-sm font-medium text-accent">
+                {index === 0
+                  ? dict.home.featuredProject
+                  : dict.projects.moreHeading}
+              </p>
+            </Band>
+            <Reveal delay={index}>
+              <ProjectEntry project={project} locale={locale} dict={dict} />
+            </Reveal>
           </div>
-        </section>
-
-        {rest.length > 0 && (
-          <section className="relative space-y-8">
-            <RuledHeading
-              eyebrow={dict.nav.projects}
-              title={dict.projects.moreHeading}
-            />
-            <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
-              {rest.map((project, i) => (
-                <Reveal key={project.slug} delay={i}>
-                  <ProjectCard project={project} locale={locale} dict={dict} />
-                </Reveal>
-              ))}
-            </div>
-          </section>
-        )}
+        ))}
       </div>
     </PageShell>
   );

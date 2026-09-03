@@ -42,11 +42,11 @@ export function CompetitionCard({
 
         <div className="flex flex-1 flex-col p-6">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="font-mono text-[11px] text-muted">
+            <span className="text-[11px] text-muted">
               {competition.date}
             </span>
             {ongoing && (
-              <span className="flex items-center gap-1.5 rounded-md border border-accent-soft/50 px-2 py-0.5 font-mono text-[11px] text-accent-soft">
+              <span className="flex items-center gap-1.5 rounded-md border border-accent-soft/50 px-2 py-0.5 text-[11px] text-accent-soft">
                 <span
                   aria-hidden="true"
                   className="h-1.5 w-1.5 animate-pulse rounded-full bg-accent-soft motion-reduce:animate-none"
@@ -66,7 +66,7 @@ export function CompetitionCard({
           </h2>
 
           {(competition.organizer || competition.location) && (
-            <p className="mt-1 font-mono text-xs text-muted">
+            <p className="mt-1 text-xs text-muted">
               {[competition.organizer, competition.location?.[locale]]
                 .filter(Boolean)
                 .join(' · ')}
@@ -89,17 +89,17 @@ export function CompetitionCard({
                       {MEDAL_EMOJI[placement.medal]}
                     </span>
                   )}
-                  <span className="font-mono text-[11px] text-text">
+                  <span className="text-[11px] text-text">
                     {placement.label[locale]}
                   </span>
-                  <span className="font-mono text-[11px] text-muted">
+                  <span className="text-[11px] text-muted">
                     {placement.scope[locale]}
                   </span>
                 </li>
               ))}
             </ul>
           ) : (
-            <p className="mt-5 font-mono text-xs text-muted">
+            <p className="mt-5 text-xs text-muted">
               {dict.competitions.noResultYet}
             </p>
           )}
@@ -116,7 +116,7 @@ export function CompetitionCard({
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="font-mono text-xs text-muted underline decoration-border underline-offset-4 transition-colors duration-300 ease-in-out hover:text-text hover:decoration-accent-soft focus-visible:text-text"
+                    className="text-xs text-muted underline decoration-border underline-offset-4 transition-colors duration-300 ease-in-out hover:text-text hover:decoration-accent-soft focus-visible:text-text"
                   >
                     {link.label} ↗
                   </a>

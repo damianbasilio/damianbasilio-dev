@@ -1,34 +1,17 @@
 @import "tailwindcss";
 
-@custom-variant dark (&:where(.dark, .dark *));
-
-/* Light is the default theme. */
+/* Light only. There is no dark theme and no toggle. */
 :root {
   --bg: #f7f7f8;
   --surface: #ffffff;
   --card: #f7f7f8;
   --border: #d6dade;
   --text: #0f172a;
-  --muted: #5e5f6e;
-  --faint: #8b8d9b;
+  --muted: #6b7280;
+  --faint: #9ca3af;
   --accent: #255E63;
-  --accent-soft: #1f5257;
-  --glow: #2f8f99;
-}
-
-/* Dark: text is deliberately near-white. Anything dimmer reads as muddy
-   on a near-black ground, which was the problem with the first pass. */
-.dark {
-  --bg: #08080a;
-  --surface: #17171b;
-  --card: #0d0d11;
-  --border: #2b2b33;
-  --text: #fafafa;
-  --muted: #c2c2cf;
-  --faint: #8f8fa0;
-  --accent: #3d9199;
-  --accent-soft: #5cb8c2;
-  --glow: #3d9199;
+  --accent-soft: #2f8f99;
+  --dark-pill: #3c3c3f;
 }
 
 @theme inline {
@@ -41,9 +24,8 @@
   --color-faint: var(--faint);
   --color-accent: var(--accent);
   --color-accent-soft: var(--accent-soft);
-  --color-glow: var(--glow);
+  --color-dark-pill: var(--dark-pill);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
 @layer base {
@@ -56,13 +38,14 @@
   body {
     background-color: var(--bg);
     color: var(--text);
+    /* One family across the whole site. No secondary face anywhere. */
     font-family: var(--font-sans), system-ui, sans-serif;
     -webkit-font-smoothing: antialiased;
     text-rendering: optimizeLegibility;
   }
 
   ::selection {
-    background-color: color-mix(in srgb, var(--accent) 30%, transparent);
+    background-color: color-mix(in srgb, var(--accent) 25%, transparent);
   }
 
   :focus-visible {
@@ -72,7 +55,7 @@
 }
 
 @layer utilities {
-  /* 45° hatch used on the 32px side rails. */
+  /* 45° hatch on the 32px side rails. */
   .rail-hatch {
     background-image: linear-gradient(
       45deg,
@@ -91,13 +74,59 @@
   /* Blurred accent column behind the page. */
   .backdrop-glow {
     background-image: linear-gradient(
-      color-mix(in srgb, var(--glow) 0%, transparent) 0%,
-      var(--glow) 50%,
-      color-mix(in srgb, var(--glow) 0%, transparent) 100%
+      color-mix(in srgb, var(--accent) 0%, transparent) 0%,
+      var(--accent) 50%,
+      color-mix(in srgb, var(--accent) 0%, transparent) 100%
     );
   }
 
-  /* Hairline that bleeds past the content column out to the rails. */
+  /* Accent-tinted ring plus a soft drop shadow, for large imagery. */
+  .drama-shadow {
+    box-shadow:
+      0 0 0 1px color-mix(in srgb, var(--accent) 15%, transparent),
+      0 4px 6px -1px rgb(0 0 0 / 0.1),
+      0 2px 4px -2px rgb(0 0 0 / 0.1);
+  }
+
+  /*
+   * Photo strip "deal": each photo starts stacked on the centre of the row,
+   * square and flat, then slides out to its slot and takes its resting tilt.
+   */
+  .deal {
+    rotate: var(--tilt);
+    animation: deal 700ms cubic-bezier(0.22, 1, 0.36, 1) backwards;
+  }
+
+  .deal:hover,
+  .deal:focus-within {
+    z-index: 20;
+  }
+
+  .deal:hover > div,
+  .deal:focus-within > div {
+    transform: translateY(-10px) scale(1.06) rotate(calc(var(--tilt) * -1));
+  }
+
+  @keyframes deal {
+    from {
+      opacity: 0;
+      translate: var(--from-x) 0;
+      rotate: 0deg;
+      scale: 0.92;
+    }
+    to {
+      opacity: 1;
+      translate: 0 0;
+      rotate: var(--tilt);
+      scale: 1;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .deal { animation: none; }
+  }
+
+  /* Hairline bleeding past the content column out to the rails. */
   .band::before,
   .band::after {
     content: '';
@@ -111,19 +140,15 @@
   .band::after { bottom: 0; }
 
   @media (min-width: 768px) {
-    .band::before,
-    .band::after { left: -2rem; right: -2rem; }
+    .band::before, .band::after { left: -2rem; right: -2rem; }
   }
   @media (min-width: 1024px) {
-    .band::before,
-    .band::after { left: 0; right: 0; }
+    .band::before, .band::after { left: 0; right: 0; }
   }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

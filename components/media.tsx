@@ -63,7 +63,7 @@ export function Media({
       }}
       className={cn('flex h-full w-full items-center justify-center', className)}
     >
-      <span className="font-mono text-2xl font-medium tracking-widest text-white/40">
+      <span className="text-2xl font-medium tracking-widest text-white/40">
         {initials(label)}
       </span>
     </div>

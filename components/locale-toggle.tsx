@@ -23,20 +23,18 @@ export function LocaleToggle({
   return (
     <div
       aria-label={dict.nav.switchLanguage}
-      className="flex items-center gap-1 rounded-full border border-border px-2 py-1 font-mono text-[11px]"
+      className="flex items-center gap-1.5 rounded-full border border-border px-3 py-1.5 text-xs"
     >
       {locales.map((code, index) => (
         <span key={code} className="flex items-center">
-          {index > 0 && <span className="px-1 text-muted">/</span>}
+          {index > 0 && <span className="pr-1.5 text-faint">/</span>}
           <Link
             href={hrefFor(code)}
             hrefLang={code}
             aria-current={code === locale ? 'true' : undefined}
             className={cn(
-              'uppercase transition-colors duration-300 ease-in-out',
-              code === locale
-                ? 'text-text'
-                : 'text-muted hover:text-text focus-visible:text-text',
+              'font-medium uppercase transition-colors duration-300',
+              code === locale ? 'text-text' : 'text-muted hover:text-text',
             )}
           >
             {code}

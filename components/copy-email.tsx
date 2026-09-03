@@ -33,7 +33,7 @@ export function CopyEmail({
       type="button"
       onClick={copy}
       aria-label={dict.contact.copyEmail}
-      className="flex items-center gap-2 rounded-full border border-border px-3 py-1.5 font-mono text-xs text-muted transition-colors duration-300 ease-in-out hover:border-accent-soft hover:text-text focus-visible:border-accent-soft focus-visible:text-text"
+      className="flex items-center gap-2 rounded-full border border-border px-3 py-1.5 text-xs text-muted transition-colors duration-300 ease-in-out hover:border-accent-soft hover:text-text focus-visible:border-accent-soft focus-visible:text-text"
     >
       <span aria-live="polite">
         {copied ? dict.contact.copied : dict.contact.copyEmail}

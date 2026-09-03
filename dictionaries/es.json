@@ -42,7 +42,9 @@
     "showDetails": "Ver detalles",
     "hideDetails": "Ocultar detalles",
     "featuredHeading": "El proyecto al que dedico más tiempo",
-    "moreHeading": "Otras cosas que he construido"
+    "moreHeading": "Otras cosas que he construido",
+    "visit": "Ver",
+    "pageTitle": "Una colección de las cosas que he construido."
   },
   "competitions": {
     "title": "Competencias",
@@ -66,7 +68,10 @@
   },
   "footer": {
     "rights": "Todos los derechos reservados.",
-    "builtWith": "Hecho con Next.js."
+    "builtWith": "Hecho con Next.js.",
+    "general": "General",
+    "specifics": "Detalles",
+    "elsewhere": "En otros sitios"
   },
   "notFound": {
     "title": "Página no encontrada",

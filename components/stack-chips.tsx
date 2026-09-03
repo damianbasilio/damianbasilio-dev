@@ -12,7 +12,7 @@ export function StackChips({
       {items.map((item) => (
         <li
           key={item}
-          className="rounded-md border border-border px-2 py-0.5 font-mono text-[11px] leading-5 text-muted"
+          className="rounded-md border border-border px-2 py-0.5 text-[11px] leading-5 text-muted"
         >
           {item}
         </li>
