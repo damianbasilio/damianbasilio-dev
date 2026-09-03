@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { locales, toLocale, type LocaleParams } from '@/lib/i18n';
 import { assertContentValid } from '@/content/validate';
+import { ThemeProvider } from '@/components/theme-provider';
 
 assertContentValid();
 
@@ -24,8 +25,10 @@ export default async function LocaleLayout({
   const locale = toLocale((await params).locale);
 
   return (
-    <div data-locale={locale} className="flex min-h-dvh flex-col">
-      {children}
-    </div>
+    <ThemeProvider>
+      <div data-locale={locale} className="flex min-h-dvh flex-col">
+        {children}
+      </div>
+    </ThemeProvider>
   );
 }
