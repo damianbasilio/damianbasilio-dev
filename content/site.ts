@@ -12,6 +12,11 @@ export const site = {
     es: 'Desarrollador backend y estudiante de Ingeniería en Ciberseguridad',
   } satisfies Localized<string>,
 
+  greeting: {
+    en: "Hi, I'm Damian.",
+    es: 'Hola, soy Damian.',
+  } satisfies Localized<string>,
+
   tagline: {
     en: "I build backends and I'm learning how to break them.",
     es: 'Construyo backends y estoy aprendiendo a romperlos.',

@@ -82,6 +82,7 @@ export function assertContentValid(): void {
   validated = true;
   problems.length = 0;
 
+  checkLocalizedString('site', 'greeting', site.greeting);
   checkLocalizedString('site', 'role', site.role);
   checkLocalizedString('site', 'tagline', site.tagline);
   checkLocalizedString('site', 'intro', site.intro);
