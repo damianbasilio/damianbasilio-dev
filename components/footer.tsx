@@ -19,7 +19,7 @@ export function Footer({
 
   return (
     <footer className="relative mt-auto border-t border-border/50">
-      <div className="divide-y divide-border/50 px-4 lg:flex lg:divide-x lg:divide-y-0 lg:px-4">
+      <div className="px-4 lg:flex">
         {/* Left panel: who, copyright, socials */}
         <div className="flex w-full flex-col justify-between gap-6 py-8 lg:pr-16">
           <p className="max-w-sm text-sm leading-relaxed text-muted">
@@ -34,7 +34,7 @@ export function Footer({
         </div>
 
         {/* Right panel: link columns */}
-        <div className="flex w-full flex-col items-start py-8 text-xs lg:items-end lg:pl-16">
+        <div className="flex w-full flex-col items-start border-t border-border/50 py-8 text-xs lg:items-end lg:border-l lg:border-t-0 lg:pl-16">
           <div className="flex w-full justify-between gap-12 md:justify-start md:gap-24 lg:justify-between">
             {columns.map((column) => (
               <div key={column.label}>

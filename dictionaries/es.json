@@ -7,7 +7,6 @@
     "contact": "Contacto",
     "menu": "Menú",
     "closeMenu": "Cerrar menú",
-    "toggleTheme": "Cambiar tema",
     "switchLanguage": "Cambiar idioma"
   },
   "home": {
@@ -53,7 +52,8 @@
     "noResultYet": "En curso — aún sin resultado.",
     "result": "Resultados",
     "ongoingTitle": "Compitiendo ahora",
-    "resultsHeading": "Dónde competí y cómo me fue"
+    "resultsHeading": "Dónde competí y cómo me fue",
+    "pageTitle": "Cada hackathon y CTF en los que he competido."
   },
   "contact": {
     "title": "Contacto",
@@ -64,7 +64,8 @@
     "linkedin": "LinkedIn",
     "github": "GitHub",
     "instagram": "Instagram",
-    "heading": "Las formas más rápidas de contactarme"
+    "heading": "Las formas más rápidas de contactarme",
+    "pageTitle": "Hablemos."
   },
   "footer": {
     "rights": "Todos los derechos reservados.",

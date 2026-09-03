@@ -7,7 +7,7 @@ import {
 } from '@/lib/i18n';
 import { site } from '@/content/site';
 import { PageShell } from '@/components/page-shell';
-import { RuledHeading } from '@/components/ruled-heading';
+import { Band } from '@/components/ruled-heading';
 import { Card } from '@/components/card';
 import { Reveal } from '@/components/reveal';
 import { CopyEmail } from '@/components/copy-email';
@@ -31,7 +31,7 @@ export default async function ContactPage({ params }: LocaleParams) {
     <PageShell>
       <section className="pt-12 text-center md:pt-16">
         <h1 className="mx-auto max-w-2xl text-balance text-[clamp(2rem,5vw,3.25rem)] font-medium leading-[1.1] tracking-[-0.05em]">
-          {dict.contact.title}
+          {dict.contact.pageTitle}
         </h1>
         <p className="mx-auto mt-6 max-w-xl text-balance text-sm leading-relaxed text-muted md:text-base">
           {dict.contact.subtitle}
@@ -43,11 +43,11 @@ export default async function ContactPage({ params }: LocaleParams) {
 
       <div className="mt-12 space-y-12 pb-16 md:space-y-16">
         <section className="relative space-y-8">
-          <RuledHeading
-            eyebrow={dict.nav.contact}
-            title={dict.contact.heading}
-            description={dict.home.contactBlurb}
-          />
+          <Band className="py-3">
+            <p className="text-center text-sm font-medium text-accent">
+              {dict.nav.contact}
+            </p>
+          </Band>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
             {site.socials.map((social, index) => (
               <Reveal key={social.key} delay={index}>
