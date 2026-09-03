@@ -83,7 +83,7 @@ export default async function LocaleLayout({
       <HtmlLang locale={locale} />
       <BackdropGlow />
       {/* The bordered centre column the entire site lives inside. */}
-      <main className="relative mx-auto flex min-h-dvh w-full max-w-5xl flex-1 flex-col overflow-x-hidden border-x border-border/60">
+      <main className="relative mx-auto flex min-h-dvh w-full max-w-7xl flex-1 flex-col overflow-x-hidden border-x border-border/60">
         <Nav locale={locale} dict={dict} />
         {children}
         <Footer locale={locale} dict={dict} />

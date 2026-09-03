@@ -38,7 +38,7 @@ export default async function AboutPage({ params }: LocaleParams) {
           height={500}
           className="mx-auto h-24 w-24 rounded-full border border-border object-cover"
         />
-        <h1 className="mx-auto mt-8 max-w-2xl text-balance text-[clamp(2rem,5vw,3rem)] font-medium leading-[1.1] tracking-[-0.04em]">
+        <h1 className="mx-auto mt-8 max-w-2xl text-balance text-[clamp(2rem,5vw,3.25rem)] font-medium leading-[1.1] tracking-[-0.05em]">
           {site.aboutHeadline[locale]}
         </h1>
         <p className="mx-auto mt-6 max-w-xl text-balance text-sm leading-relaxed text-muted md:text-base">

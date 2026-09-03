@@ -23,7 +23,7 @@ export function RuledHeading({
       </div>
 
       <div className="band relative w-full py-6">
-        <h2 className="mx-auto max-w-lg text-balance text-center text-[clamp(1.75rem,4vw,2rem)] font-medium leading-tight tracking-[-0.03em] text-text">
+        <h2 className="mx-auto max-w-lg text-balance text-center text-[clamp(1.75rem,4vw,2.25rem)] font-medium leading-[1.11] tracking-[-0.025em] text-text">
           {title}
         </h2>
       </div>
