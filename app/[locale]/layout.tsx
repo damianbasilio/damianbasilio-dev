@@ -80,9 +80,14 @@ export default async function LocaleLayout({
   return (
     <>
       <HtmlLang locale={locale} />
-      <BackdropGlow />
       {/* The bordered centre column the entire site lives inside. */}
       <main className="relative mx-auto flex min-h-dvh w-full max-w-7xl flex-1 flex-col overflow-x-hidden border-x border-border/60">
+        {/*
+          Inside <main> so `h-full` spans the whole document rather than one
+          viewport. The gradient peaks at the page's midpoint, so it reads as
+          a faint tint once you scroll rather than behind the hero.
+        */}
+        <BackdropGlow />
         <Nav locale={locale} dict={dict} />
         {children}
         <Footer locale={locale} dict={dict} />

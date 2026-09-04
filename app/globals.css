@@ -4,7 +4,7 @@
 :root {
   --bg: #f7f7f8;
   --surface: #ffffff;
-  --card: #f7f7f8;
+  --card: #ffffff;
   --border: #d6dade;
   --text: #0f172a;
   --muted: #6b7280;
@@ -459,6 +459,13 @@
   }
 
   .js .words[data-in] .word {
+    transform: none;
+    opacity: 1;
+  }
+
+  /* Animation cannot play: show the words outright. */
+  .js .words-static .word {
+    transition: none;
     transform: none;
     opacity: 1;
   }
