@@ -287,12 +287,13 @@
 
   .card-interactive {
     /*
-     * Promote to its own compositor layer. Without this the 1px border is
-     * re-rasterised every frame of the lift, and at fractional pixel offsets
-     * the top edge antialiases away to nothing.
+     * The card must NOT be transformed. WebKit rasterises a box that is
+     * simultaneously `overflow: hidden` and rounded, and a transform on it
+     * drops the top row of the rounded clip, so the top edge vanishes on
+     * hover in Safari. Verified against WebKit directly. The lift is
+     * expressed through shadow instead; child elements may still transform.
      */
-    transform: translateZ(0);
-    backface-visibility: hidden;
+    isolation: isolate;
     transition:
       background-color 500ms var(--ease-out-quint),
       box-shadow 500ms var(--ease-out-quint),
@@ -302,12 +303,11 @@
   .card-interactive:hover,
   .card-interactive:focus-visible {
     background-color: var(--surface);
-    transform: translate3d(0, -3px, 0);
     box-shadow:
       inset 0 0 0 1px color-mix(in oklab, var(--accent) 45%, var(--border)),
-      0 1px 1px rgb(0 0 0 / 0.04),
-      0 8px 24px -12px rgb(0 0 0 / 0.18),
-      0 24px 48px -24px rgb(0 0 0 / 0.12);
+      0 2px 4px -2px rgb(0 0 0 / 0.10),
+      0 12px 28px -12px rgb(0 0 0 / 0.22),
+      0 30px 60px -28px rgb(0 0 0 / 0.16);
   }
 
   .card-spotlight,
@@ -415,8 +415,6 @@
   }
 
   @media (prefers-reduced-motion: reduce) {
-    .card-interactive,
-    .card-interactive:hover,
     .card-interactive .card-body,
     .card-interactive img,
     .card-sheen {
