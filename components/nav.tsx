@@ -38,7 +38,8 @@ export function Nav({ locale, dict }: { locale: Locale; dict: Dictionary }) {
   const socials = site.socials.filter((s) => s.key !== 'email');
 
   return (
-    <header className="sticky top-0 z-50 bg-bg/85 backdrop-blur-md">
+    <>
+      <header className="sticky top-0 z-50 bg-bg/85 backdrop-blur-md">
       <nav
         aria-label="Desktop navigation"
         className="hidden h-16 w-full items-center justify-between border-b border-border/50 px-4 md:flex"
@@ -115,8 +116,16 @@ export function Nav({ locale, dict }: { locale: Locale; dict: Dictionary }) {
         </div>
       </nav>
 
+    </header>
+
+      {/*
+        Rendered as a sibling of <header>, never inside it. The header carries
+        backdrop-blur, and backdrop-filter establishes a containing block for
+        fixed descendants, which would pin this sheet to the 56px header
+        instead of the viewport.
+      */}
       {open && (
-        <div className="fixed inset-0 top-14 z-40 bg-bg px-4 py-8 md:hidden">
+        <div className="fixed inset-0 top-14 z-40 overflow-y-auto bg-bg px-4 py-8 md:hidden">
           <ul className="flex flex-col gap-1">
             {NAV_ITEMS.map((item) => (
               <li key={item.key}>
@@ -134,6 +143,6 @@ export function Nav({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           </div>
         </div>
       )}
-    </header>
+    </>
   );
 }
