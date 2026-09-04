@@ -37,6 +37,9 @@ export function PhotoStrip({ images }: { images: string[] }) {
                 '--tilt': `${TILTS[i % TILTS.length]}deg`,
                 '--from-x': `${(mid - i) * 150}px`,
                 animationDelay: `${i * 90}ms`,
+                // Earlier cards sit on top, so each card's LEFT edge is
+                // tucked under its neighbour rather than its right edge.
+                zIndex: images.length - i,
               } as React.CSSProperties
             }
           >

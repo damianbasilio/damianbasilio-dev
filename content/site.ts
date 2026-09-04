@@ -158,8 +158,10 @@ export const site = {
 
   /** Tilted photo strip on the home page. Files live in /public/images/strip/. */
   photoStrip: [
-    '/images/strip/strip-01.webp',
     '/images/strip/strip-02.webp',
+    // strip-01 sits second so the card to its left covers its left edge.
+    '/images/strip/strip-01.webp',
+    // The solo shot stays dead centre.
     '/images/strip/strip-03.webp',
     '/images/strip/strip-04.webp',
     '/images/strip/strip-05.webp',

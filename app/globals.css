@@ -99,7 +99,7 @@
 
   .deal:hover,
   .deal:focus-within {
-    z-index: 20;
+    z-index: 50;
   }
 
   .deal:hover > div,
