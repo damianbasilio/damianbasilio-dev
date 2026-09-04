@@ -58,8 +58,6 @@ export function Card({
           <span aria-hidden="true" className="card-wash" />
           {/* Sheen sweeping across on entry */}
           <span aria-hidden="true" className="card-sheen" />
-          {/* Border highlight tracing the pointer */}
-          <span aria-hidden="true" className="card-edge" />
           {/* Arrow pill */}
           <span aria-hidden="true" className="card-pill">
             <svg

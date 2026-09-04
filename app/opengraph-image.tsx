@@ -21,7 +21,7 @@ export default function OpengraphImage() {
           fontFamily: 'sans-serif',
         }}
       >
-        <div style={{ fontSize: 30, color: '#3d9199', letterSpacing: 2 }}>
+        <div style={{ fontSize: 30, color: '#9A6E4E', letterSpacing: 2 }}>
           damianbasilio.dev
         </div>
         <div style={{ fontSize: 78, marginTop: 24, lineHeight: 1.1 }}>

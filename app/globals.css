@@ -9,8 +9,8 @@
   --text: #0f172a;
   --muted: #6b7280;
   --faint: #9ca3af;
-  --accent: #255E63;
-  --accent-soft: #2f8f99;
+  --accent: #6B4A32;
+  --accent-soft: #9A6E4E;
   --dark-pill: #3c3c3f;
 }
 
@@ -300,8 +300,7 @@
 
   .card-spotlight,
   .card-wash,
-  .card-sheen,
-  .card-edge {
+  .card-sheen {
     position: absolute;
     inset: 0;
     pointer-events: none;
@@ -313,8 +312,8 @@
     z-index: 0;
     background: radial-gradient(
       380px circle at var(--mx) var(--my),
-      color-mix(in oklab, var(--accent) 14%, transparent),
-      transparent 60%
+      color-mix(in oklab, var(--accent) 9%, transparent),
+      transparent 62%
     );
   }
 
@@ -322,29 +321,9 @@
     z-index: 0;
     background-image: linear-gradient(
       to top left,
-      color-mix(in oklab, var(--accent) 18%, transparent),
-      transparent 55%
+      color-mix(in oklab, var(--accent) 13%, transparent),
+      transparent 58%
     );
-  }
-
-  /* A thin ring that brightens nearest the pointer. */
-  .card-edge {
-    z-index: 1;
-    border-radius: inherit;
-    padding: 1px;
-    background: radial-gradient(
-      300px circle at var(--mx) var(--my),
-      color-mix(in oklab, var(--accent) 55%, transparent),
-      transparent 65%
-    );
-    -webkit-mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    -webkit-mask-composite: xor;
-    mask:
-      linear-gradient(#000 0 0) content-box,
-      linear-gradient(#000 0 0);
-    mask-composite: exclude;
   }
 
   .card-sheen {
@@ -363,9 +342,7 @@
   .card-interactive:hover .card-spotlight,
   .card-interactive:focus-visible .card-spotlight,
   .card-interactive:hover .card-wash,
-  .card-interactive:focus-visible .card-wash,
-  .card-interactive:hover .card-edge,
-  .card-interactive:focus-visible .card-edge {
+  .card-interactive:focus-visible .card-wash {
     opacity: 1;
   }
 
