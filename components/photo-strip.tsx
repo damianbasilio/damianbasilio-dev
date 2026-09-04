@@ -39,7 +39,9 @@ export function PhotoStrip({ images }: { images: string[] }) {
                 animationDelay: `${i * 90}ms`,
                 // Earlier cards sit on top, so each card's LEFT edge is
                 // tucked under its neighbour rather than its right edge.
-                zIndex: images.length - i,
+                // Passed as a custom property, not an inline z-index, so the
+                // :hover rule can still raise a card above its neighbours.
+                '--z': images.length - i,
               } as React.CSSProperties
             }
           >
