@@ -8,8 +8,8 @@ the build fails if one is missing.
 |---|---|---|
 | `profile/avatar.webp` | Square headshot, used in the hero ring and on About | 512px |
 | `strip/strip-01.webp` … `strip-05.webp` | Home page photo strip | 700px square |
-| `projects/checalo-01.webp` | checalo.mx | 1440px, 16:9 |
-| `projects/hpe-cds-01.webp` | hpe.52sec.org | 1440px, 16:9 |
+| `projects/checalo-01.webp` | checalo.mx, captured at 2x below the site header | 2000px, 16:9 |
+| `projects/hpe-cds-01.webp` | hpe.52sec.org, captured at 2x below the site header | 2000px, 16:9 |
 | `competitions/hpe-cds-25-26-01.webp` | HPE CDS Tech Challenge | 1400px |
 
 ## Adding more
