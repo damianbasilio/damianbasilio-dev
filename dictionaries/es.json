@@ -53,7 +53,9 @@
     "result": "Resultados",
     "ongoingTitle": "Compitiendo ahora",
     "resultsHeading": "Dónde competí y cómo me fue",
-    "pageTitle": "Cada hackathon y CTF en los que he competido."
+    "pageTitle": "Cada hackathon y CTF en los que he competido.",
+    "alsoEyebrow": "También",
+    "alsoHeading": "Otros resultados que vale la pena mencionar"
   },
   "contact": {
     "title": "Contacto",

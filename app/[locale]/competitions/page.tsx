@@ -29,14 +29,15 @@ export default async function CompetitionsPage({ params }: LocaleParams) {
   const locale = toLocale((await params).locale);
   const dict = getDictionary(locale);
 
-  const completed = competitions.filter((c) => c.status === 'completed');
-  const ongoing = competitions.filter((c) => c.status === 'ongoing');
-  const anchor = completed.filter((c) => c.anchor);
-  const otherCompleted = completed.filter((c) => !c.anchor);
+  // Only the anchor entry has photography; everything else is text only.
+  const anchor = competitions.find((c) => c.anchor);
+  const rest = competitions.filter((c) => !c.anchor);
+  const completed = rest.filter((c) => c.status === 'completed');
+  const ongoing = rest.filter((c) => c.status === 'ongoing');
 
   return (
     <PageShell>
-      <section className="pt-12 text-center md:pt-16">
+      <section className="py-16 text-center md:py-20">
         <h1 className="mx-auto max-w-2xl text-balance text-[clamp(2rem,5vw,3.25rem)] font-medium leading-[1.1] tracking-[-0.05em]">
           {dict.competitions.pageTitle}
         </h1>
@@ -45,52 +46,65 @@ export default async function CompetitionsPage({ params }: LocaleParams) {
         </p>
       </section>
 
-      <div className="mt-12 space-y-12 pb-16 md:space-y-16">
-        <section className="relative space-y-8">
-          <RuledHeading
-            eyebrow={dict.competitions.result}
-            title={dict.competitions.resultsHeading}
-          />
-          <div className="grid grid-cols-1 gap-2">
-            {anchor.map((competition, i) => (
-              <Reveal key={competition.slug} delay={i} variant="tilt">
-                <CompetitionCard
-                  competition={competition}
-                  locale={locale}
-                  dict={dict}
-                  anchor
-                />
-              </Reveal>
-            ))}
-            {otherCompleted.map((competition, i) => (
-              <Reveal key={competition.slug} delay={i + 1} variant="tilt">
-                <CompetitionCard
-                  competition={competition}
-                  locale={locale}
-                  dict={dict}
-                />
-              </Reveal>
-            ))}
-          </div>
-        </section>
+      <div className="space-y-12 pb-20 md:space-y-16">
+        {anchor && (
+          <section className="relative space-y-8">
+            <RuledHeading
+              eyebrow={dict.competitions.result}
+              title={dict.competitions.resultsHeading}
+            />
+            <Reveal variant="tilt">
+              <CompetitionCard
+                competition={anchor}
+                locale={locale}
+                dict={dict}
+                anchor
+              />
+            </Reveal>
+          </section>
+        )}
 
-        <section className="relative space-y-8">
-          <RuledHeading
-            eyebrow={dict.competitions.ongoing}
-            title={dict.competitions.ongoingTitle}
-          />
-          <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
-            {ongoing.map((competition, i) => (
-              <Reveal key={competition.slug} delay={i} variant="tilt">
-                <CompetitionCard
-                  competition={competition}
-                  locale={locale}
-                  dict={dict}
-                />
-              </Reveal>
-            ))}
-          </div>
-        </section>
+        {completed.length > 0 && (
+          <section className="relative space-y-8">
+            <RuledHeading
+              eyebrow={dict.competitions.alsoEyebrow}
+              title={dict.competitions.alsoHeading}
+            />
+            <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+              {completed.map((competition, i) => (
+                <Reveal key={competition.slug} delay={i} variant="tilt">
+                  <CompetitionCard
+                    competition={competition}
+                    locale={locale}
+                    dict={dict}
+                    showMedia={false}
+                  />
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        )}
+
+        {ongoing.length > 0 && (
+          <section className="relative space-y-8">
+            <RuledHeading
+              eyebrow={dict.competitions.ongoing}
+              title={dict.competitions.ongoingTitle}
+            />
+            <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
+              {ongoing.map((competition, i) => (
+                <Reveal key={competition.slug} delay={i} variant="tilt">
+                  <CompetitionCard
+                    competition={competition}
+                    locale={locale}
+                    dict={dict}
+                    showMedia={false}
+                  />
+                </Reveal>
+              ))}
+            </div>
+          </section>
+        )}
       </div>
     </PageShell>
   );

@@ -11,34 +11,40 @@ export function CompetitionCard({
   locale,
   dict,
   anchor = false,
+  showMedia = true,
 }: {
   competition: Competition;
   locale: Locale;
   dict: Dictionary;
   anchor?: boolean;
+  /** Only entries that actually have a photo should reserve space for one. */
+  showMedia?: boolean;
 }) {
   const ongoing = competition.status === 'ongoing';
+  const withMedia = showMedia && competition.images.length > 0;
 
   return (
     <Card interactive padded={false} className="h-full">
       {/* Card's inner wrapper is always flex-col, so the row layout lives here. */}
       <div className={cn('flex h-full flex-col', anchor && 'md:flex-row')}>
-        <div
-          className={cn(
-            'w-full shrink-0 overflow-hidden border-border',
-            anchor
-              ? 'h-48 border-b md:h-auto md:w-2/5 md:border-b-0 md:border-r'
-              : 'h-36 border-b',
-          )}
-        >
-          <Media
-            src={competition.images[0]}
-            seed={competition.slug}
-            label={competition.event}
-            alt={competition.event}
-            focus={competition.focus}
-          />
-        </div>
+        {withMedia && (
+          <div
+            className={cn(
+              'w-full shrink-0 overflow-hidden border-border',
+              anchor
+                ? 'h-48 border-b md:h-auto md:w-2/5 md:border-b-0 md:border-r'
+                : 'h-36 border-b',
+            )}
+          >
+            <Media
+              src={competition.images[0]}
+              seed={competition.slug}
+              label={competition.event}
+              alt={competition.event}
+              focus={competition.focus}
+            />
+          </div>
+        )}
 
         <div className="flex flex-1 flex-col p-6">
           <div className="flex flex-wrap items-center gap-3">
