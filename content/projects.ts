@@ -4,23 +4,23 @@ export const projects: Project[] = [
   {
     slug: 'checalo',
     featured: true,
-    year: '2025 — present',
+    year: '2025 to now',
     status: 'closed-source',
     title: { en: 'Chécalo', es: 'Chécalo' },
     summary: {
-      en: "A mobile app that tracks live pricing across Mexico's major supermarket chains, so a full basket can be priced before you leave the house.",
-      es: 'Una app móvil que rastrea precios en vivo de las principales cadenas de supermercados en México, para comparar una despensa completa antes de salir de casa.',
+      en: "A mobile app that tracks live prices across Mexico's big supermarket chains, so you can see where a full basket costs less before you leave the house.",
+      es: 'Una app móvil que sigue precios en vivo de las grandes cadenas de supermercados en México, para ver dónde sale más barata la despensa antes de salir de casa.',
     },
     body: {
       en: [
-        'Chécalo indexes roughly 1.8 million products and keeps them refreshed from live chain data. The hard part is not the scraping — it is deciding that a 1.5L bottle listed three different ways in three different catalogs is the same product.',
-        'The backend is a distributed scraping pipeline feeding a cross-chain matching layer, with search served by Meilisearch and the edge handled by Cloudflare. The client is React Native.',
-        'The backend is complete end to end. Monetization through ads and subscriptions is designed but not yet shipped. It is a commercial product, so the source stays closed.',
+        'Chécalo keeps about 1.8 million products up to date from live chain data. Scraping them is the easy part. The hard part is deciding that a 1.5L bottle written three different ways in three different catalogs is the same bottle.',
+        'The backend is a distributed scraping pipeline feeding a matching layer that reconciles products across chains. Search runs on Meilisearch, Cloudflare handles the edge, and the app itself is React Native.',
+        'It works end to end. Ads and subscriptions are designed but not shipped yet. It is a commercial product, so the code stays private.',
       ],
       es: [
-        'Chécalo indexa cerca de 1.8 millones de productos y los mantiene actualizados con datos en vivo de cada cadena. Lo difícil no es el scraping — es decidir que una botella de 1.5L listada de tres formas distintas en tres catálogos distintos es el mismo producto.',
-        'El backend es un pipeline distribuido de scraping que alimenta una capa de matching entre cadenas, con búsqueda servida por Meilisearch y el borde manejado por Cloudflare. El cliente es React Native.',
-        'El backend está completo de extremo a extremo. La monetización con anuncios y suscripciones está diseñada pero aún no lanzada. Es un producto comercial, así que el código permanece cerrado.',
+        'Chécalo mantiene al día cerca de 1.8 millones de productos con datos en vivo de cada cadena. Hacer el scraping es lo fácil. Lo difícil es decidir que una botella de 1.5L escrita de tres formas distintas en tres catálogos distintos es la misma botella.',
+        'El backend es un pipeline distribuido de scraping que alimenta una capa de matching entre cadenas. La búsqueda corre en Meilisearch, Cloudflare maneja el borde, y la app es React Native.',
+        'Funciona de extremo a extremo. Los anuncios y las suscripciones están diseñados pero aún no salen. Es un producto comercial, así que el código se queda privado.',
       ],
     },
     metrics: [
@@ -30,7 +30,7 @@ export const projects: Project[] = [
       },
       {
         value: 'Live',
-        label: { en: 'chain data refresh', es: 'datos de cadenas en vivo' },
+        label: { en: 'price updates', es: 'precios actualizados' },
       },
     ],
     stack: [
@@ -54,19 +54,19 @@ export const projects: Project[] = [
       es: 'Gemelo Digital HPE CDS',
     },
     summary: {
-      en: "A real-time digital twin of Aruba's police, ambulance, fire, civil protection and drone fleets, built for the HPE CDS Tech Challenge.",
-      es: 'Un gemelo digital en tiempo real de las flotas de policía, ambulancias, bomberos, protección civil y drones de Aruba, construido para el HPE CDS Tech Challenge.',
+      en: "A live digital twin of Aruba's police, ambulance, fire, civil protection and drone fleets, built for the HPE CDS Tech Challenge.",
+      es: 'Un gemelo digital en vivo de las flotas de policía, ambulancias, bomberos, protección civil y drones de Aruba, hecho para el HPE CDS Tech Challenge.',
     },
     body: {
       en: [
-        'It started as a digital twin of a single police vehicle streaming telemetry at 10 Hz, with tactical scenarios analyzed by an LLM in natural language and real routing over Madrid. That version won the national stage.',
-        'For the global final it scaled into a five-fleet emergency services platform: telemetry, island events and weather all streamed over Kafka, a live dispatch dashboard with dynamic ETAs and OSRM routing, and historical replay of any past incident window.',
-        'Built with 52Sec. Third globally out of every competing team.',
+        'It started small. One police vehicle streaming telemetry at 10 Hz, an LLM reading tactical scenarios in plain language, and real routing over Madrid. That version won the national stage.',
+        'For the global final we grew it into a five fleet platform. Telemetry, island events and weather all move over Kafka. The dispatch dashboard updates live with OSRM routing and ETAs that shift as conditions do, and you can replay any past incident window.',
+        'Built with 52Sec. Third in the world.',
       ],
       es: [
-        'Empezó como un gemelo digital de una sola patrulla transmitiendo telemetría a 10 Hz, con escenarios tácticos analizados por un LLM en lenguaje natural y ruteo real sobre Madrid. Esa versión ganó la etapa nacional.',
-        'Para la final global creció a una plataforma de servicios de emergencia con cinco flotas: telemetría, eventos de la isla y clima transmitidos sobre Kafka, un dashboard de despacho en vivo con ETAs dinámicos y ruteo OSRM, y replay histórico de cualquier ventana de incidentes.',
-        'Construido con 52Sec. Tercer lugar global entre todos los equipos participantes.',
+        'Empezó en chico. Una patrulla transmitiendo telemetría a 10 Hz, un LLM leyendo escenarios tácticos en lenguaje normal, y ruteo real sobre Madrid. Esa versión ganó la etapa nacional.',
+        'Para la final global lo hicimos crecer a una plataforma de cinco flotas. Telemetría, eventos de la isla y clima viajan sobre Kafka. El dashboard de despacho se actualiza en vivo con ruteo OSRM y ETAs que cambian con las condiciones, y puedes repetir cualquier ventana de incidentes pasada.',
+        'Hecho con 52Sec. Tercer lugar del mundo.',
       ],
     },
     metrics: [

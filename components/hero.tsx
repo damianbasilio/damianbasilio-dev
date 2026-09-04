@@ -3,8 +3,8 @@ import { site } from '@/content/site';
 import { Band } from '@/components/ruled-heading';
 
 /**
- * Avatar sits inside two concentric rings — an outer hairline circle and an
- * inner ringed disc — matching the reference site's framed portrait.
+ * Avatar sits inside two concentric rings, an outer hairline circle and an
+ * inner ringed disc, matching the reference site's framed portrait.
  */
 function RingedAvatar() {
   return (

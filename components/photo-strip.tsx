@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/cn';
 
-/** Per-photo resting tilt, in degrees — small and irregular, never uniform. */
+/** Per-photo resting tilt, in degrees, small and irregular, never uniform. */
 const TILTS = [-3.4, 1.3, 3.4, -1.7, -1.2, 2.4];
 
 /**

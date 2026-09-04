@@ -5,7 +5,7 @@ import { StackChips } from '@/components/stack-chips';
 
 /**
  * A full-width project entry: heading, prose, a large screenshot, then links.
- * The reference site presents projects this way rather than as a card grid —
+ * The reference site presents projects this way rather than as a card grid -
  * it gives the imagery room and reads far more premium.
  */
 export function ProjectEntry({

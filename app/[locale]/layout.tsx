@@ -27,7 +27,7 @@ export async function generateMetadata({
 
   return {
     title: {
-      default: `${site.name} — ${site.role[locale]}`,
+      default: `${site.name}, ${site.role[locale]}`,
       template: `%s · ${site.name}`,
     },
     description: site.intro[locale],
@@ -40,7 +40,7 @@ export async function generateMetadata({
       siteName: site.name,
       locale: locale === 'es' ? 'es_MX' : 'en_US',
       url: `/${locale}/`,
-      title: `${site.name} — ${site.role[locale]}`,
+      title: `${site.name}, ${site.role[locale]}`,
       description: site.tagline[locale],
       images: [
         { url: '/opengraph-image', width: 1200, height: 630, alt: site.name },
@@ -48,7 +48,7 @@ export async function generateMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${site.name} — ${site.role[locale]}`,
+      title: `${site.name}, ${site.role[locale]}`,
       description: site.tagline[locale],
       images: ['/opengraph-image'],
     },
@@ -58,7 +58,7 @@ export async function generateMetadata({
 /**
  * Next renders <html> only in the root layout, which has no locale in scope.
  * Static export rules out middleware, so the correct `lang` is stamped here.
- * `locale` comes from generateStaticParams and is JSON-encoded — never user input.
+ * `locale` comes from generateStaticParams and is JSON-encoded, never user input.
  */
 function HtmlLang({ locale }: { locale: Locale }) {
   return (

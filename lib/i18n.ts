@@ -13,7 +13,7 @@ const dictionaries: Record<Locale, Dictionary> = { en, es };
 /**
  * Next's generated route types widen `params` to `string`, so every page
  * narrows through here. `dynamicParams = false` means the fallback is
- * unreachable in practice — it exists to satisfy the type system honestly
+ * unreachable in practice, it exists to satisfy the type system honestly
  * rather than with a cast.
  */
 export function toLocale(value: string): Locale {

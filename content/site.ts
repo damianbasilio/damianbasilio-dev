@@ -8,7 +8,7 @@ export const site = {
   url: 'https://damianbasilio.dev',
 
   role: {
-    en: 'Backend developer & Cybersecurity Engineering student',
+    en: 'Backend developer and Cybersecurity Engineering student',
     es: 'Desarrollador backend y estudiante de Ingeniería en Ciberseguridad',
   } satisfies Localized<string>,
 
@@ -18,13 +18,13 @@ export const site = {
   } satisfies Localized<string>,
 
   aboutHeadline: {
-    en: "I'm Damian, a backend developer who keeps trying to break his own systems.",
-    es: 'Soy Damian, un desarrollador backend que insiste en romper sus propios sistemas.',
+    en: "I'm Damian. I build backends, and I keep trying to break them.",
+    es: 'Soy Damian. Construyo backends, y no dejo de intentar romperlos.',
   } satisfies Localized<string>,
 
   footerBio: {
-    en: "I'm Damian — a backend developer and Cybersecurity Engineering student in Puebla. Thanks for looking around.",
-    es: 'Soy Damian — desarrollador backend y estudiante de Ingeniería en Ciberseguridad en Puebla. Gracias por pasar.',
+    en: "I'm Damian, a backend developer and Cybersecurity Engineering student in Puebla. Thanks for stopping by.",
+    es: 'Soy Damian, desarrollador backend y estudiante de Ingeniería en Ciberseguridad en Puebla. Gracias por pasar.',
   } satisfies Localized<string>,
 
   tagline: {
@@ -38,18 +38,18 @@ export const site = {
   } satisfies Localized<string>,
 
   heroIntro: {
-    en: 'Cybersecurity Engineering student at FCC BUAP in Puebla. Distributed scrapers, real-time pipelines, and APIs that have to stay up.',
-    es: 'Estudiante de Ingeniería en Ciberseguridad en la FCC BUAP, Puebla. Scrapers distribuidos, pipelines en tiempo real y APIs que no se pueden caer.',
+    en: 'Cybersecurity Engineering student at FCC BUAP in Puebla. Mostly backend work: distributed scrapers, real time pipelines, APIs that cannot go down.',
+    es: 'Estudiante de Ingeniería en Ciberseguridad en la FCC BUAP, Puebla. Sobre todo backend: scrapers distribuidos, pipelines en tiempo real, APIs que no se pueden caer.',
   } satisfies Localized<string>,
 
   intro: {
-    en: "I'm a Cybersecurity Engineering student at FCC BUAP in Puebla. I spend most of my time on backends — distributed scrapers, real-time pipelines, APIs that have to stay up — and the rest of it learning how those same systems fall over. I compete with 52Sec in hackathons and CTFs.",
-    es: 'Soy estudiante de Ingeniería en Ciberseguridad en la FCC BUAP, en Puebla. Paso la mayor parte del tiempo en backends — scrapers distribuidos, pipelines en tiempo real, APIs que no se pueden caer — y el resto aprendiendo cómo se rompen esos mismos sistemas. Compito con 52Sec en hackathons y CTFs.',
+    en: "I study Cybersecurity Engineering at FCC BUAP in Puebla. Most of my time goes into backend work: distributed scrapers, real time pipelines, APIs that cannot go down. The rest goes into figuring out how those same systems fall apart, which usually turns out to be the more interesting half. I compete with 52Sec in hackathons and CTFs.",
+    es: 'Estudio Ingeniería en Ciberseguridad en la FCC BUAP, en Puebla. La mayor parte de mi tiempo se va en backend: scrapers distribuidos, pipelines en tiempo real, APIs que no se pueden caer. El resto se va en entender cómo se rompen esos mismos sistemas, que casi siempre resulta ser la mitad más interesante. Compito con 52Sec en hackathons y CTFs.',
   } satisfies Localized<string>,
 
   aboutExtra: {
-    en: 'Most of what I enjoy sits at the seam between building something and hardening it. I would rather ship a system I understand well enough to attack than one that merely works on the happy path.',
-    es: 'Lo que más disfruto está en la costura entre construir algo y endurecerlo. Prefiero lanzar un sistema que entiendo lo suficiente como para atacarlo, en vez de uno que solo funciona en el camino feliz.',
+    en: "What I like most is the point where building something and securing it stop being two separate jobs. I would rather ship a system I know well enough to attack than one that only holds up when nothing goes wrong.",
+    es: 'Lo que más me gusta es el punto donde construir algo y asegurarlo dejan de ser dos trabajos distintos. Prefiero lanzar un sistema que conozco lo suficiente para atacarlo, y no uno que solo aguanta cuando nada sale mal.',
   } satisfies Localized<string>,
 
   location: {
@@ -104,28 +104,28 @@ export const site = {
   timeline: [
     {
       id: 'buap',
-      period: '2023 — present',
+      period: '2023 to now',
       org: 'FCC BUAP',
       title: {
         en: 'Cybersecurity Engineering',
         es: 'Ingeniería en Ciberseguridad',
       },
       body: {
-        en: 'Studying at the Facultad de Ciencias de la Computación in Puebla, focused on network and infrastructure security.',
-        es: 'Estudio en la Facultad de Ciencias de la Computación en Puebla, enfocado en seguridad de redes e infraestructura.',
+        en: 'I study at the Facultad de Ciencias de la Computación in Puebla. Most of what I chase there is network and infrastructure security.',
+        es: 'Estudio en la Facultad de Ciencias de la Computación en Puebla. Lo que más persigo ahí es la seguridad de redes e infraestructura.',
       },
     },
     {
       id: '52sec',
-      period: '2024 — present',
+      period: '2024 to now',
       org: '52Sec',
       title: {
         en: 'Competitive hackathon team',
         es: 'Equipo competitivo de hackathons',
       },
       body: {
-        en: 'Competing nationally and internationally in hackathons and CTFs with a team out of Puebla.',
-        es: 'Compito a nivel nacional e internacional en hackathons y CTFs con un equipo de Puebla.',
+        en: 'A team out of Puebla. We enter hackathons and CTFs together, at home and abroad.',
+        es: 'Un equipo de Puebla. Entramos juntos a hackathons y CTFs, aquí y fuera del país.',
       },
     },
     {
@@ -137,21 +137,21 @@ export const site = {
         es: '1º nacional, 3º global en Madrid',
       },
       body: {
-        en: 'Built a real-time digital twin of a five-fleet emergency services platform, then took it to the global final in Madrid.',
-        es: 'Construimos un gemelo digital en tiempo real de una plataforma de emergencias con cinco flotas, y lo llevamos a la final global en Madrid.',
+        en: 'We built a live digital twin of a five fleet emergency service, then took it to the global final in Madrid.',
+        es: 'Construimos un gemelo digital en vivo de un servicio de emergencias con cinco flotas, y lo llevamos a la final global en Madrid.',
       },
     },
     {
       id: 'checalo',
-      period: '2025 — present',
+      period: '2025 to now',
       org: 'Chécalo',
       title: {
         en: 'Building a price-comparison platform',
         es: 'Construyendo una plataforma de comparación de precios',
       },
       body: {
-        en: 'A distributed scraping and matching pipeline tracking roughly 1.8 million supermarket products across Mexico.',
-        es: 'Un pipeline distribuido de scraping y matching que rastrea cerca de 1.8 millones de productos de supermercado en México.',
+        en: 'A scraping and matching pipeline that keeps track of about 1.8 million supermarket products across Mexico.',
+        es: 'Un pipeline de scraping y matching que sigue unos 1.8 millones de productos de supermercado en México.',
       },
     },
   ] satisfies TimelineEntry[],

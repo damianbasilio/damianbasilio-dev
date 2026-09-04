@@ -42,7 +42,7 @@ export default async function AboutPage({ params }: LocaleParams) {
           {site.aboutHeadline[locale]}
         </h1>
         <p className="mx-auto mt-6 max-w-xl text-balance text-sm leading-relaxed text-muted md:text-base">
-          {site.tagline[locale]}
+          {site.role[locale]}. {site.location[locale]}.
         </p>
       </section>
 
@@ -65,7 +65,7 @@ export default async function AboutPage({ params }: LocaleParams) {
           />
           <ol className="mx-auto max-w-2xl border-l border-border pl-6">
             {site.timeline.map((entry, index) => (
-              /* Reveal renders a div, so it sits INSIDE the li — an <ol> may
+              /* Reveal renders a div, so it sits INSIDE the li, an <ol> may
                  only have <li> children. The dot anchors to the li. */
               <li key={entry.id} className="relative pb-8 last:pb-0">
                 <span
