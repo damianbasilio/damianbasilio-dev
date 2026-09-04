@@ -50,7 +50,7 @@ export default async function ContactPage({ params }: LocaleParams) {
           </Band>
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2">
             {site.socials.map((social, index) => (
-              <Reveal key={social.key} delay={index}>
+              <Reveal key={social.key} delay={index} variant="tilt">
                 <Card
                   href={social.href}
                   external={social.key !== 'email'}

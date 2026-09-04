@@ -1,6 +1,8 @@
 import type { Project } from '@/content/types';
 import type { Dictionary, Locale } from '@/lib/i18n';
 import { Media } from '@/components/media';
+import { Reveal } from '@/components/reveal';
+import { CountUp } from '@/components/count-up';
 import { StackChips } from '@/components/stack-chips';
 
 /**
@@ -40,7 +42,7 @@ export function ProjectEntry({
         </p>
       </div>
 
-      <div className="overflow-hidden rounded-xl drama-shadow">
+      <Reveal variant="unveil" className="overflow-hidden rounded-xl drama-shadow">
         <div className="aspect-[16/9] w-full">
           <Media
             src={project.images[0]}
@@ -50,7 +52,7 @@ export function ProjectEntry({
             focus={project.focus}
           />
         </div>
-      </div>
+      </Reveal>
 
       <div className="mx-auto max-w-2xl space-y-4">
         {project.body[locale].map((paragraph, index) => (
@@ -63,7 +65,9 @@ export function ProjectEntry({
           <dl className="flex flex-wrap gap-10 pt-2">
             {project.metrics.map((metric) => (
               <div key={metric.value}>
-                <dt className="text-xl font-medium">{metric.value}</dt>
+                <dt className="text-xl font-medium">
+                  <CountUp value={metric.value} />
+                </dt>
                 <dd className="mt-0.5 text-xs text-faint">
                   {metric.label[locale]}
                 </dd>

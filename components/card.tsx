@@ -1,3 +1,6 @@
+'use client';
+
+import { useRef } from 'react';
 import { cn } from '@/lib/cn';
 
 type CardProps = {
@@ -12,9 +15,6 @@ type CardProps = {
   padded?: boolean;
 };
 
-/** Slow-out curve; makes the hover feel like it settles rather than snaps. */
-const EASE = 'ease-[cubic-bezier(0.22,1,0.36,1)]';
-
 export function Card({
   children,
   className,
@@ -23,40 +23,45 @@ export function Card({
   external = false,
   padded = true,
 }: CardProps) {
+  const ref = useRef<HTMLElement | null>(null);
   const isInteractive = interactive || Boolean(href);
+
+  /**
+   * Track the pointer as a percentage of the card so the spotlight, the sheen
+   * and the border highlight can all follow it. Written straight to CSS custom
+   * properties: no React state, so this never re-renders.
+   */
+  function onPointerMove(event: React.PointerEvent<HTMLElement>) {
+    const node = ref.current;
+    if (!node) return;
+    const rect = node.getBoundingClientRect();
+    const x = ((event.clientX - rect.left) / rect.width) * 100;
+    const y = ((event.clientY - rect.top) / rect.height) * 100;
+    node.style.setProperty('--mx', `${x}%`);
+    node.style.setProperty('--my', `${y}%`);
+  }
+
+  function onPointerLeave() {
+    const node = ref.current;
+    if (!node) return;
+    node.style.setProperty('--mx', '50%');
+    node.style.setProperty('--my', '50%');
+  }
 
   const body = (
     <>
       {isInteractive && (
         <>
+          {/* Spotlight that follows the cursor */}
+          <span aria-hidden="true" className="card-spotlight" />
           {/* Corner wash */}
-          <span
-            aria-hidden="true"
-            className={cn(
-              'pointer-events-none absolute inset-0 z-0 bg-gradient-to-tl from-accent/20 via-transparent to-transparent opacity-0 transition-opacity duration-500',
-              EASE,
-              'group-hover:opacity-100 group-focus-visible:opacity-100',
-            )}
-          />
+          <span aria-hidden="true" className="card-wash" />
           {/* Sheen sweeping across on entry */}
-          <span
-            aria-hidden="true"
-            className={cn(
-              'pointer-events-none absolute inset-0 z-0 -translate-x-full bg-gradient-to-r from-transparent via-accent/[0.07] to-transparent transition-transform duration-700',
-              EASE,
-              'group-hover:translate-x-full group-focus-visible:translate-x-full',
-            )}
-          />
+          <span aria-hidden="true" className="card-sheen" />
+          {/* Border highlight tracing the pointer */}
+          <span aria-hidden="true" className="card-edge" />
           {/* Arrow pill */}
-          <span
-            aria-hidden="true"
-            className={cn(
-              'pointer-events-none absolute bottom-4 right-4 z-20 flex h-9 w-9 rotate-6 items-center justify-center rounded-full bg-accent/15 text-accent opacity-0 transition-all duration-500',
-              EASE,
-              'group-hover:translate-y-[-8px] group-hover:rotate-0 group-hover:opacity-100',
-              'group-focus-visible:translate-y-[-8px] group-focus-visible:rotate-0 group-focus-visible:opacity-100',
-            )}
-          >
+          <span aria-hidden="true" className="card-pill">
             <svg
               viewBox="0 0 24 24"
               fill="none"
@@ -71,28 +76,27 @@ export function Card({
           </span>
         </>
       )}
-      <div className="relative z-10 flex h-full flex-col">{children}</div>
+      <div className="card-body relative z-10 flex h-full flex-col">
+        {children}
+      </div>
     </>
   );
 
   const classes = cn(
-    'group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card',
+    'card group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card',
     padded && 'p-6',
-    isInteractive && [
-      'transition-[background-color,border-color,box-shadow,transform] duration-500',
-      EASE,
-      'hover:-translate-y-0.5 hover:border-accent/40 hover:bg-surface hover:shadow-[0_8px_30px_-12px_rgb(0_0_0_/_0.18)]',
-      'focus-visible:-translate-y-0.5 focus-visible:border-accent/40 focus-visible:bg-surface',
-      'motion-reduce:hover:translate-y-0 motion-reduce:focus-visible:translate-y-0',
-    ],
+    isInteractive && 'card-interactive',
     className,
   );
 
   if (href) {
     return (
       <a
+        ref={ref as React.Ref<HTMLAnchorElement>}
         href={href}
         className={classes}
+        onPointerMove={isInteractive ? onPointerMove : undefined}
+        onPointerLeave={isInteractive ? onPointerLeave : undefined}
         {...(external ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
       >
         {body}
@@ -100,5 +104,14 @@ export function Card({
     );
   }
 
-  return <div className={classes}>{body}</div>;
+  return (
+    <div
+      ref={ref as React.Ref<HTMLDivElement>}
+      className={classes}
+      onPointerMove={isInteractive ? onPointerMove : undefined}
+      onPointerLeave={isInteractive ? onPointerLeave : undefined}
+    >
+      {body}
+    </div>
+  );
 }

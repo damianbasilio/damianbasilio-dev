@@ -24,11 +24,16 @@ export default function RootLayout({
     /* The font variable lives on <html> so :root-level --font-sans resolves. */
     <html lang="en" className={geistSans.variable}>
       <body>
-        {/* Scroll reveals start hidden and are un-hidden by JS. Without this
-            override a visitor with JS disabled would see an empty page. */}
-        <noscript>
-          <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
-        </noscript>
+        {/*
+          Every entrance animation's hidden start state is scoped to `.js`.
+          With scripting off the class never lands, so the page renders in its
+          final state instead of staying invisible.
+        */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add('js')`,
+          }}
+        />
         {children}
       </body>
     </html>

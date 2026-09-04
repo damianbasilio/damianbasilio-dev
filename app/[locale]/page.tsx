@@ -15,8 +15,8 @@ import { Card } from '@/components/card';
 import { Reveal } from '@/components/reveal';
 import { Media } from '@/components/media';
 import { StackChips } from '@/components/stack-chips';
-
-const MEDAL_EMOJI = { gold: '🥇', silver: '🥈', bronze: '🥉' } as const;
+import { Medal } from '@/components/medal';
+import { CountUp } from '@/components/count-up';
 
 export default async function HomePage({ params }: LocaleParams) {
   const locale = toLocale((await params).locale);
@@ -40,7 +40,7 @@ export default async function HomePage({ params }: LocaleParams) {
             description={dict.home.aboutBlurb}
           />
           <div className="grid grid-cols-1 gap-2 md:grid-cols-12">
-            <Reveal delay={0} className="md:col-span-7">
+            <Reveal delay={0} variant="tilt" className="md:col-span-7">
               <Card
                 href={`${localeHref(locale, '/about')}/`}
                 className="h-full min-h-[220px]"
@@ -55,7 +55,7 @@ export default async function HomePage({ params }: LocaleParams) {
               </Card>
             </Reveal>
 
-            <Reveal delay={1} className="md:col-span-5">
+            <Reveal delay={1} variant="tilt" className="md:col-span-5">
               <Card className="h-full min-h-[220px]">
                 <h3 className="text-lg font-medium">{dict.home.stackTitle}</h3>
                 <p className="mt-2 text-sm text-muted">{dict.home.stackBlurb}</p>
@@ -73,7 +73,7 @@ export default async function HomePage({ params }: LocaleParams) {
             description={dict.home.competitionsBlurb}
           />
           <div className="grid grid-cols-1 gap-2 md:grid-cols-12">
-            <Reveal delay={0} className="md:col-span-7">
+            <Reveal delay={0} variant="tilt" className="md:col-span-7">
               <Card
                 href={`${localeHref(locale, '/competitions')}/`}
                 padded={false}
@@ -96,9 +96,7 @@ export default async function HomePage({ params }: LocaleParams) {
                         key={p.scope[locale]}
                         className="flex items-center gap-2 rounded-lg border border-border bg-bg px-2.5 py-1"
                       >
-                        <span aria-hidden="true" className="text-sm">
-                          {p.medal ? MEDAL_EMOJI[p.medal] : ''}
-                        </span>
+                        {p.medal && <Medal medal={p.medal} />}
                         <span className="text-[11px] text-text">
                           {p.label[locale]}
                         </span>
@@ -112,7 +110,7 @@ export default async function HomePage({ params }: LocaleParams) {
               </Card>
             </Reveal>
 
-            <Reveal delay={1} className="md:col-span-5">
+            <Reveal delay={1} variant="tilt" className="md:col-span-5">
               <Card
                 href={`${localeHref(locale, '/competitions')}/`}
                 className="h-full"
@@ -147,7 +145,7 @@ export default async function HomePage({ params }: LocaleParams) {
             description={dict.projects.subtitle}
           />
           <div className="grid grid-cols-1 gap-2 md:grid-cols-12">
-            <Reveal delay={0} className="md:col-span-12">
+            <Reveal delay={0} variant="tilt" className="md:col-span-12">
               <Card
                 href={`${localeHref(locale, '/projects')}/`}
                 padded={false}
@@ -174,7 +172,7 @@ export default async function HomePage({ params }: LocaleParams) {
                       {featured.metrics.map((m) => (
                         <div key={m.value}>
                           <dt className="text-xl text-text">
-                            {m.value}
+                            <CountUp value={m.value} />
                           </dt>
                           <dd className="mt-0.5 text-xs text-faint">
                             {m.label[locale]}
@@ -198,7 +196,7 @@ export default async function HomePage({ params }: LocaleParams) {
           />
           <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 md:grid-cols-4">
             {site.socials.map((social, i) => (
-              <Reveal key={social.key} delay={i}>
+              <Reveal key={social.key} delay={i} variant="tilt">
                 <Card
                   href={social.href}
                   external={social.key !== 'email'}

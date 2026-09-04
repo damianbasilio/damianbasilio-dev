@@ -53,7 +53,7 @@ export default async function CompetitionsPage({ params }: LocaleParams) {
           />
           <div className="grid grid-cols-1 gap-2">
             {anchor.map((competition, i) => (
-              <Reveal key={competition.slug} delay={i}>
+              <Reveal key={competition.slug} delay={i} variant="tilt">
                 <CompetitionCard
                   competition={competition}
                   locale={locale}
@@ -63,7 +63,7 @@ export default async function CompetitionsPage({ params }: LocaleParams) {
               </Reveal>
             ))}
             {otherCompleted.map((competition, i) => (
-              <Reveal key={competition.slug} delay={i + 1}>
+              <Reveal key={competition.slug} delay={i + 1} variant="tilt">
                 <CompetitionCard
                   competition={competition}
                   locale={locale}
@@ -81,7 +81,7 @@ export default async function CompetitionsPage({ params }: LocaleParams) {
           />
           <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
             {ongoing.map((competition, i) => (
-              <Reveal key={competition.slug} delay={i}>
+              <Reveal key={competition.slug} delay={i} variant="tilt">
                 <CompetitionCard
                   competition={competition}
                   locale={locale}

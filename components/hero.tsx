@@ -2,6 +2,7 @@ import type { Dictionary, Locale } from '@/lib/i18n';
 import { site } from '@/content/site';
 import { Band } from '@/components/ruled-heading';
 import { RingedAvatar } from '@/components/ringed-avatar';
+import { Words } from '@/components/words';
 
 export function Hero({
   locale,
@@ -16,9 +17,9 @@ export function Hero({
       <div className="mt-6 space-y-4">
         <Band className="py-6">
           <h1 className="mx-auto max-w-2xl text-balance text-center text-4xl font-medium leading-tight tracking-[-0.05em] md:text-6xl md:leading-[64px]">
-            {site.greeting[locale]}
+            <Words text={site.greeting[locale]} />
             <br />
-            {site.heroTagline[locale]}
+            <Words text={site.heroTagline[locale]} startDelay={220} />
           </h1>
         </Band>
 

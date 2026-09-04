@@ -1,9 +1,14 @@
+'use client';
+
+import { useReveal } from '@/lib/use-reveal';
 import { cn } from '@/lib/cn';
 
 /**
- * Section header: an accent eyebrow and a large centred heading, each inside
- * a band bounded by hairlines that bleed out past the content column to the
- * rails. This is the reference site's dominant structural motif.
+ * Section header: an accent eyebrow and a large centred heading, each inside a
+ * band bounded by hairlines that bleed out past the content column.
+ *
+ * On reveal the hairlines draw outward from the centre, then the eyebrow,
+ * heading and description rise in sequence.
  */
 export function RuledHeading({
   eyebrow,
@@ -16,20 +21,28 @@ export function RuledHeading({
   description?: string;
   className?: string;
 }) {
+  const { ref, revealed } = useReveal<HTMLDivElement>();
+
   return (
-    <div className={cn('space-y-4', className)}>
+    <div
+      ref={ref}
+      data-in={revealed ? '' : undefined}
+      className={cn('rh space-y-4', className)}
+    >
       <div className="band relative w-full py-3">
-        <p className="text-center text-sm font-medium text-accent">{eyebrow}</p>
+        <p className="rh-eyebrow text-center text-sm font-medium text-accent">
+          {eyebrow}
+        </p>
       </div>
 
       <div className="band relative w-full py-6">
-        <h2 className="mx-auto max-w-lg text-balance text-center text-[clamp(1.75rem,4vw,2.25rem)] font-medium leading-[1.11] tracking-[-0.025em] text-text">
+        <h2 className="rh-title mx-auto max-w-lg text-balance text-center text-[clamp(1.75rem,4vw,2.25rem)] font-medium leading-[1.11] tracking-[-0.025em] text-text">
           {title}
         </h2>
       </div>
 
       {description && (
-        <p className="mx-auto max-w-xl text-balance text-center text-sm leading-relaxed text-muted">
+        <p className="rh-desc mx-auto max-w-xl text-balance text-center text-sm leading-relaxed text-muted">
           {description}
         </p>
       )}

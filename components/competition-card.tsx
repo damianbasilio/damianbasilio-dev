@@ -3,9 +3,8 @@ import type { Dictionary, Locale } from '@/lib/i18n';
 import { Card } from '@/components/card';
 import { Media } from '@/components/media';
 import { StackChips } from '@/components/stack-chips';
+import { Medal } from '@/components/medal';
 import { cn } from '@/lib/cn';
-
-const MEDAL_EMOJI = { gold: '🥇', silver: '🥈', bronze: '🥉' } as const;
 
 export function CompetitionCard({
   competition,
@@ -85,11 +84,7 @@ export function CompetitionCard({
                   key={`${placement.scope[locale]}-${placement.label[locale]}`}
                   className="flex items-center gap-2 rounded-lg border border-border bg-bg px-3 py-1.5"
                 >
-                  {placement.medal && (
-                    <span aria-hidden="true" className="text-sm">
-                      {MEDAL_EMOJI[placement.medal]}
-                    </span>
-                  )}
+                  {placement.medal && <Medal medal={placement.medal} />}
                   <span className="text-[11px] text-text">
                     {placement.label[locale]}
                   </span>

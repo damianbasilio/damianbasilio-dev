@@ -8,7 +8,7 @@ import {
 import { site } from '@/content/site';
 import { PageShell } from '@/components/page-shell';
 import { RuledHeading, Band } from '@/components/ruled-heading';
-import { Reveal } from '@/components/reveal';
+import { Timeline } from '@/components/timeline';
 import { RingedAvatar } from '@/components/ringed-avatar';
 import { Card } from '@/components/card';
 import { StackChips } from '@/components/stack-chips';
@@ -58,28 +58,15 @@ export default async function AboutPage({ params }: LocaleParams) {
             eyebrow={dict.about.experienceEyebrow}
             title={dict.about.timelineHeading}
           />
-          <ol className="mx-auto max-w-2xl border-l border-border pl-6">
-            {site.timeline.map((entry, index) => (
-              /* Reveal renders a div, so it sits INSIDE the li, an <ol> may
-                 only have <li> children. The dot anchors to the li. */
-              <li key={entry.id} className="relative pb-8 last:pb-0">
-                <span
-                  aria-hidden="true"
-                  className="absolute -left-[27px] top-2 h-2 w-2 rounded-full bg-accent"
-                />
-                <Reveal delay={index}>
-                  <p className="text-xs text-faint">{entry.period}</p>
-                  <h3 className="mt-1 font-medium">{entry.title[locale]}</h3>
-                  <p className="mt-0.5 text-xs text-accent">
-                    {entry.org}
-                  </p>
-                  <p className="mt-2 text-sm leading-relaxed text-muted">
-                    {entry.body[locale]}
-                  </p>
-                </Reveal>
-              </li>
-            ))}
-          </ol>
+          <Timeline
+            entries={site.timeline.map((entry) => ({
+              id: entry.id,
+              period: entry.period,
+              org: entry.org,
+              title: entry.title[locale],
+              body: entry.body[locale],
+            }))}
+          />
         </section>
 
         <section className="relative space-y-8">
