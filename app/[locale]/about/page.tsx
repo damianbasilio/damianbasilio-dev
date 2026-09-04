@@ -9,6 +9,7 @@ import { site } from '@/content/site';
 import { PageShell } from '@/components/page-shell';
 import { RuledHeading, Band } from '@/components/ruled-heading';
 import { Reveal } from '@/components/reveal';
+import { RingedAvatar } from '@/components/ringed-avatar';
 import { Card } from '@/components/card';
 import { StackChips } from '@/components/stack-chips';
 
@@ -31,13 +32,7 @@ export default async function AboutPage({ params }: LocaleParams) {
   return (
     <PageShell>
       <section className="pt-12 text-center md:pt-16">
-        <img
-          src={site.portrait}
-          alt={site.fullName}
-          width={400}
-          height={500}
-          className="mx-auto h-24 w-24 rounded-full border border-border object-cover"
-        />
+        <RingedAvatar src={site.portrait} />
         <h1 className="mx-auto mt-8 max-w-2xl text-balance text-[clamp(2rem,5vw,3.25rem)] font-medium leading-[1.1] tracking-[-0.05em]">
           {site.aboutHeadline[locale]}
         </h1>

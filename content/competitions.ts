@@ -34,7 +34,7 @@ export const competitions: Competition[] = [
       { label: 'HPE_Final', href: 'https://github.com/damianbasilio/HPE_Final' },
     ],
     images: ['/images/competitions/hpe-cds-25-26-01.webp'],
-    focus: 'top',
+    focus: '50% 12%',
   },
   {
     slug: 'cybersecurity-global-buap-ctf',

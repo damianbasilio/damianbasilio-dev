@@ -25,8 +25,11 @@ export type TimelineEntry = {
   body: Localized<string>;
 };
 
-/** Which part of an image to keep when it is cropped to fit a card. */
-export type Focus = 'top' | 'center' | 'bottom';
+/**
+ * Which part of an image to keep when a card crops it. Any CSS
+ * object-position value, e.g. 'center', 'top', or '50% 10%'.
+ */
+export type Focus = string;
 
 export type Project = {
   slug: string;
