@@ -280,6 +280,13 @@
   }
 
   .card-interactive {
+    /*
+     * Promote to its own compositor layer. Without this the 1px border is
+     * re-rasterised every frame of the lift, and at fractional pixel offsets
+     * the top edge antialiases away to nothing.
+     */
+    transform: translateZ(0);
+    backface-visibility: hidden;
     transition:
       background-color 500ms var(--ease-out-quint),
       border-color 500ms var(--ease-out-quint),
@@ -290,9 +297,12 @@
   .card-interactive:hover,
   .card-interactive:focus-visible {
     background-color: var(--surface);
-    border-color: color-mix(in oklab, var(--accent) 35%, transparent);
-    transform: translateY(-3px);
+    /* Opaque blend, not an alpha fade: a translucent border lets the card
+       background show through and reads as a weaker edge. */
+    border-color: color-mix(in oklab, var(--accent) 45%, var(--border));
+    transform: translate3d(0, -3px, 0);
     box-shadow:
+      0 -1px 0 rgb(0 0 0 / 0.03),
       0 1px 1px rgb(0 0 0 / 0.04),
       0 8px 24px -12px rgb(0 0 0 / 0.18),
       0 24px 48px -24px rgb(0 0 0 / 0.12);
