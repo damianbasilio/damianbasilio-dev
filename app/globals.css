@@ -277,6 +277,12 @@
     --mx: 50%;
     --my: 50%;
     --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+    /*
+     * The outline is an inset ring, not a border. A 1px border on a rounded,
+     * clipped, translating box loses its top row to antialiasing; an inset
+     * shadow is painted inside the padding box and stays even on all sides.
+     */
+    box-shadow: inset 0 0 0 1px var(--border);
   }
 
   .card-interactive {
@@ -289,7 +295,6 @@
     backface-visibility: hidden;
     transition:
       background-color 500ms var(--ease-out-quint),
-      border-color 500ms var(--ease-out-quint),
       box-shadow 500ms var(--ease-out-quint),
       transform 500ms var(--ease-out-quint);
   }
@@ -297,12 +302,9 @@
   .card-interactive:hover,
   .card-interactive:focus-visible {
     background-color: var(--surface);
-    /* Opaque blend, not an alpha fade: a translucent border lets the card
-       background show through and reads as a weaker edge. */
-    border-color: color-mix(in oklab, var(--accent) 45%, var(--border));
     transform: translate3d(0, -3px, 0);
     box-shadow:
-      0 -1px 0 rgb(0 0 0 / 0.03),
+      inset 0 0 0 1px color-mix(in oklab, var(--accent) 45%, var(--border)),
       0 1px 1px rgb(0 0 0 / 0.04),
       0 8px 24px -12px rgb(0 0 0 / 0.18),
       0 24px 48px -24px rgb(0 0 0 / 0.12);

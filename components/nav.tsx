@@ -43,7 +43,7 @@ export function Nav({ locale, dict }: { locale: Locale; dict: Dictionary }) {
         aria-label="Desktop navigation"
         className="hidden h-16 w-full items-center justify-between border-b border-border/50 px-4 md:flex"
       >
-        <div className="w-[104px]">
+        <div className="flex flex-1 items-center">
           <Link
             href={`${localeHref(locale)}/`}
             aria-label={dict.nav.home}
@@ -73,7 +73,7 @@ export function Nav({ locale, dict }: { locale: Locale; dict: Dictionary }) {
           })}
         </ul>
 
-        <div className="flex items-center justify-end gap-2">
+        <div className="flex flex-1 items-center justify-end gap-2">
           <LocaleToggle locale={locale} dict={dict} />
           <SocialPill socials={socials} />
         </div>

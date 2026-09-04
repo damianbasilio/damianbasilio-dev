@@ -81,7 +81,7 @@ export function Card({
   );
 
   const classes = cn(
-    'card group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-card',
+    'card group relative flex flex-col overflow-hidden rounded-2xl bg-card',
     padded && 'p-6',
     isInteractive && 'card-interactive',
     className,
