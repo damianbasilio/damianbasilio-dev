@@ -24,7 +24,10 @@ export function Card({
   padded = true,
 }: CardProps) {
   const ref = useRef<HTMLElement | null>(null);
-  const isInteractive = interactive || Boolean(href);
+  // `interactive` gives a card the hover treatment; only a real href makes it
+  // navigable. The arrow promises navigation, so it is tied to href alone.
+  const isLink = Boolean(href);
+  const isInteractive = interactive || isLink;
 
   /**
    * Track the pointer as a percentage of the card so the spotlight, the sheen
@@ -58,20 +61,22 @@ export function Card({
           <span aria-hidden="true" className="card-wash" />
           {/* Sheen sweeping across on entry */}
           <span aria-hidden="true" className="card-sheen" />
-          {/* Arrow pill */}
-          <span aria-hidden="true" className="card-pill">
-            <svg
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.8"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className="h-4 w-4"
-            >
-              <path d="M7 17 17 7M8 7h9v9" />
-            </svg>
-          </span>
+          {/* Arrow pill: only where the card actually goes somewhere. */}
+          {isLink && (
+            <span aria-hidden="true" className="card-pill">
+              <svg
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="1.8"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="h-4 w-4"
+              >
+                <path d="M7 17 17 7M8 7h9v9" />
+              </svg>
+            </span>
+          )}
         </>
       )}
       <div className="card-body relative z-10 flex h-full flex-col">
