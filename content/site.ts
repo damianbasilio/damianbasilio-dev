@@ -158,13 +158,13 @@ export const site = {
 
   /** Tilted photo strip on the home page. Files live in /public/images/strip/. */
   photoStrip: [
-    '/images/strip/strip-01.jpg',
-    '/images/strip/strip-02.jpg',
-    '/images/strip/strip-03.jpg',
-    '/images/strip/strip-04.jpg',
-    '/images/strip/strip-05.jpg',
+    '/images/strip/strip-01.webp',
+    '/images/strip/strip-02.webp',
+    '/images/strip/strip-03.webp',
+    '/images/strip/strip-04.webp',
+    '/images/strip/strip-05.webp',
   ],
 
   avatar: '/images/profile/avatar.webp',
-  portrait: '/images/profile/portrait.jpg',
+  portrait: '/images/profile/avatar.webp',
 };

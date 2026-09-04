@@ -42,7 +42,7 @@ export const projects: Project[] = [
       'Cloudflare',
     ],
     links: [{ label: 'checalo.mx', href: 'https://checalo.mx' }],
-    images: ['/images/projects/checalo-01.jpg'],
+    images: ['/images/projects/checalo-01.webp'],
   },
   {
     slug: 'hpe-cds-digital-twin',
@@ -84,6 +84,6 @@ export const projects: Project[] = [
         href: 'https://github.com/damianbasilio/gemelodigitalhpe_52sec',
       },
     ],
-    images: ['/images/projects/hpe-cds-01.jpg'],
+    images: ['/images/projects/hpe-cds-01.webp'],
   },
 ];
