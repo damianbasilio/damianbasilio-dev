@@ -37,6 +37,7 @@ export function CompetitionCard({
             seed={competition.slug}
             label={competition.event}
             alt={competition.event}
+            focus={competition.focus}
           />
         </div>
 

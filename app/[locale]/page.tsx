@@ -85,6 +85,7 @@ export default async function HomePage({ params }: LocaleParams) {
                     seed={anchor.slug}
                     label={anchor.event}
                     alt={anchor.event}
+                    focus={anchor.focus}
                   />
                 </div>
                 <div className="flex flex-1 flex-col p-6">
@@ -159,6 +160,7 @@ export default async function HomePage({ params }: LocaleParams) {
                       seed={featured.slug}
                       label={featured.title[locale]}
                       alt={featured.title[locale]}
+                      focus={featured.focus}
                     />
                   </div>
                   <div className="flex flex-1 flex-col p-6">

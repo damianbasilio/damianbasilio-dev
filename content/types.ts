@@ -25,6 +25,9 @@ export type TimelineEntry = {
   body: Localized<string>;
 };
 
+/** Which part of an image to keep when it is cropped to fit a card. */
+export type Focus = 'top' | 'center' | 'bottom';
+
 export type Project = {
   slug: string;
   featured: boolean;
@@ -37,6 +40,7 @@ export type Project = {
   links: ContentLink[];
   status: 'closed-source' | 'open-source';
   images: string[];
+  focus?: Focus;
 };
 
 export type Medal = 'gold' | 'silver' | 'bronze';
@@ -60,4 +64,5 @@ export type Competition = {
   stack?: string[];
   links?: ContentLink[];
   images: string[];
+  focus?: Focus;
 };

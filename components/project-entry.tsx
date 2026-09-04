@@ -47,6 +47,7 @@ export function ProjectEntry({
             seed={project.slug}
             label={project.title[locale]}
             alt={project.title[locale]}
+            focus={project.focus}
           />
         </div>
       </div>

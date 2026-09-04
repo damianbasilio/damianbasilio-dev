@@ -1,4 +1,11 @@
+import type { Focus } from '@/content/types';
 import { cn } from '@/lib/cn';
+
+const FOCUS_CLASS: Record<Focus, string> = {
+  top: 'object-top',
+  center: 'object-center',
+  bottom: 'object-bottom',
+};
 
 /** Deterministic hue from a string, so the same slug always gets the same gradient. */
 function hueFromSeed(seed: string): number {
@@ -27,6 +34,7 @@ export function Media({
   className,
   width = 1600,
   height = 900,
+  focus = 'center',
 }: {
   src?: string;
   alt: string;
@@ -37,6 +45,8 @@ export function Media({
   className?: string;
   width?: number;
   height?: number;
+  /** Which part of the image survives when the card crops it. */
+  focus?: Focus;
 }) {
   if (src) {
     return (
@@ -47,7 +57,7 @@ export function Media({
         height={height}
         loading="lazy"
         decoding="async"
-        className={cn('h-full w-full object-cover', className)}
+        className={cn('h-full w-full object-cover', FOCUS_CLASS[focus], className)}
       />
     );
   }
